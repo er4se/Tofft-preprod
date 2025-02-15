@@ -1,0 +1,115 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    font-family: 'Market Fresh';
+    background-color: #F9F9F9;
+    margin-bottom: 60px;
+}
+
+/*#region Header*/
+
+header{
+    background: #292f36;
+    height: 96px;
+}
+
+header .container{
+    height: 96px;
+}
+
+header .nav-item:not(:last-child){
+    margin-right: 64px;
+}
+
+header .nav-item{
+    font-family: 'Market Fresh';
+    font-weight: bold;
+    font-size: 36px;
+}
+
+header .nav-link{
+    color: #F7FFF7;
+}
+
+header .active{
+    color: #4ECDC4;
+}
+
+header .nav li.active, .nav li.active:hover, li:hover, a:hover{
+    color: #4ECDC4 !important;
+}
+
+header .navbar-logo{
+    margin-bottom: 15px;
+    height: 42px;
+    width: 42px;
+}
+
+header .navbar-brand {
+    font-family: 'Market Fresh';
+    font-weight: bold;
+    font-size: 48px;
+    color: #F7FFF7;
+}
+
+header .navbar{
+    display: flex;
+    align-items: center;
+    height: 96px;
+}
+
+header .container-fluid {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+header .navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+header .navbar-title{
+    align-items: center;
+}
+
+header .navbar-profile{
+    margin-right: 20px;
+    align-items: center;
+}
+
+header .navbar-notify{
+    margin-right: 15px;
+    height: 38px;
+    width: 38px;
+}
+
+header .navbar-avatar{
+    height: 54px;
+    width: 54px;
+}
+
+/*#endregion*/
+
+/*#region Home*/
+
+
+
+/*#endregion*/
