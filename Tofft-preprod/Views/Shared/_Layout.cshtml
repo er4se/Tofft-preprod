@@ -32,6 +32,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">FAQ</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Account" asp-action="Register">Register</a>
+                    </li>
                 </ul>
                 <div class="d-flex flex-row navbar-profile">
                     <img src="~/Tofft-png-holder/Notifications.png" class="navbar-notify" />
@@ -40,14 +43,51 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+
+    <div class="container main-content">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted" style="height: 100px">
-        <a>CHZH</a>
+    <footer class="border-top footer text-muted">
+        <div class="container row footer-content">
+            <div class="col-4">
+                <h4>Контакты</h4>
+                <h2>Мащенко А. Е. / AKOVA Prod.</h2>
+                <a>+7 (963) 682 - 93 - 04<br /></a>
+                <a>mash.xander@outlook.com</a>
+            </div>
+            <div class="col-6">
+                <h4>Оферта</h4>
+                <p>
+                    Данное программное обеспечение спроектировано и разработано в качестве продукта
+                    для выпускной квалификационной работы (далее ВКР) студента бакалавриата
+                    Федерального государственного бюджетного образовательного учреждения высшего образования
+                    ”Российский Государственный Социальный Университет” (РГСУ)<br />
+                    <br />
+                    “Разработка веб-приложения для управления групповыми проектами “Tofft”” - 2025 год.
+                </p>
+            </div>
+            <div class="col-2">
+                <h4>Локализация</h4>
+                <div>
+                    <input type="radio" id="ru" value="Russian" checked="checked" />
+                    <label for="ru">Русский</label>
+                    <img src="~/Tofft-png-holder/russia.png" class="localisation-flags" />
+                </div>
+                <div>
+                    <input type="radio" id="en" value="English" />
+                    <label for="en">English</label>
+                    <img src="~/Tofft-png-holder/united-kingdom.png" class="localisation-flags" />
+                </div>
+                <div>
+                    <input type="radio" id="du" value="Deutsch" />
+                    <label for="du">Deutsch</label>
+                    <img src="~/Tofft-png-holder/germany.png" class="localisation-flags" />
+                </div>
+            </div>
+        </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

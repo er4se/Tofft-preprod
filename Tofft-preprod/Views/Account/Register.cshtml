@@ -1,0 +1,32 @@
+﻿@using Tofft_preprod.Models.ViewModels
+@model RegisterViewModel
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tofft</title>
+    <link rel="stylesheet" href="~/css/validation.css" />
+</head>
+
+
+<form asp-action="Register" method="post">
+    <div class="container validation-content">
+        <h2>Register</h2>
+        <div class="validation-bar row">
+            <label asp-for="Email" class="col-2"></label>
+            <input asp-for="Email" class="col-2"/>
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div class="validation-bar row">
+            <label asp-for="Password" class="col-2"></label>
+            <input asp-for="Password" class="col-2" />
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div class="validation-bar row">
+            <label asp-for="ConfirmPassword" class="col-2"></label>
+            <input asp-for="ConfirmPassword" class="col-2" />
+            <span asp-validation-for="ConfirmPassword"></span>
+        </div>
+        <button class="btn" type="submit">Register</button>
+    </div>
+</form>

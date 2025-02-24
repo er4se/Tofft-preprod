@@ -29,8 +29,6 @@
     background-color: #34b4b2;
 }
 
-
-
 .rating{
     margin-bottom: 10px;
 }
@@ -117,7 +115,7 @@ textarea {
 
 /*#region main-content*/
 
-.main-content {
+.menu-content {
     display: flex;
     align-items: flex-end;
     margin: 20px 0;
