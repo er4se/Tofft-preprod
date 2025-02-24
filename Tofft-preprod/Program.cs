@@ -20,6 +20,12 @@ namespace Tofft_preprod
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
+            builder.Services.AddAuthorization(options =>
+            {
+                options.AddPolicy("RequireAdmin", policy => policy.RequireRole("Admin"));
+                options.AddPolicy("RequireUser", policy => policy.RequireRole("User"));
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -30,8 +36,6 @@ namespace Tofft_preprod
                 app.UseHsts();
             }
 
-            
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -39,8 +43,6 @@ namespace Tofft_preprod
 
             app.UseAuthentication();
             app.UseAuthorization();
-
-            //app.UseAuthorization();
 
             app.MapControllerRoute(
                 name: "default",

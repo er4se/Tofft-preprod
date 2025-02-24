@@ -8,21 +8,25 @@
     <link rel="stylesheet" href="~/css/validation.css" />
 </head>
 
-<h2>Login</h2>
 <form asp-action="Login" method="post">
-    <div>
-        <label asp-for="Email"></label>
-        <input asp-for="Email" />
-        <span asp-validation-for="Email"></span>
+    <div class="container validation-content">
+        <h2>Login</h2>
+        <div class="validation-bar row">
+            <label asp-for="Email" class="col-2"></label>
+            <input asp-for="Email" class="col-2" />
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div class="validation-bar row">
+            <label asp-for="Password" class="col-2"></label>
+            <input asp-for="Password" class="col-2" />
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div class="validation-bar row">
+            <label asp-for="RememberMe" class="col-2"></label>
+            <div class="col-2" style="padding-left: 0">
+                <input asp-for="RememberMe" />
+            </div>
+        </div>
+        <button class="btn" type="submit">Login</button>
     </div>
-    <div>
-        <label asp-for="Password"></label>
-        <input asp-for="Password" />
-        <span asp-validation-for="Password"></span>
-    </div>
-    <div>
-        <label asp-for="RememberMe"></label>
-        <input asp-for="RememberMe" />
-    </div>
-    <button type="submit">Login</button>
 </form>
