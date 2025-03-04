@@ -1,0 +1,28 @@
+﻿body {
+    font-family: 'Market Fresh';
+    background-color: #F7FFF7;
+    margin: 0;
+    padding: 0;
+}
+
+.content-main-body p {
+    font-size: 28px;
+    margin: 20px 0;
+}
+
+.emoji {
+    padding: 0;
+    height: 128px;
+    width: 128px;
+}
+
+.add-button-splash {
+    margin: 20px;
+    padding: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    background-color: #4ECDC4;
+}
+    .add-button-splash button {
+        border: 1px solid #41B7AE;
+    }

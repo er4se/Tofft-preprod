@@ -1,0 +1,37 @@
+﻿@using Tofft_preprod.Models.ViewModels
+@model UserBoardsViewModel
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tofft</title>
+    <link rel="stylesheet" href="~/css/board.css" />
+</head>
+
+<body>
+    <content>
+        <form asp-action="UserBoards" method="dialog">
+            <div class="page-content-container container row">
+                <div class="content-top-head d-flex flex-row align-items-center">
+                    <h1>YOUR PROJECTS</h1>
+                    <button class="add-button rounded-circle" type="submit">+</button>
+                </div>
+                <div class="content-main-body">
+                    <div class="container">
+                        <div class="row align-items-center text-center justify-content-center">
+                            <p>
+                                Кажется вы пока не участвуете ни в одном проекте :(<br />
+                                Вы можете создать собственный или присоединится к готовому <br />
+                                По приглашению-ссылке!
+                            </p>
+                            <img src="~/Tofft-png-holder/thinking.png" class="emoji" />
+                        </div>
+                        <div class="add-button-splash row justify-content-center">
+                            <button class="add-button rounded-circle" type="submit">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </content>
+</body>
