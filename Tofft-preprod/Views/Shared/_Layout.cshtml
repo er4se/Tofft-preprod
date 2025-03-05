@@ -21,7 +21,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/home">Home</a>
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="Board" asp-action="UserBoards">Projects</a>
@@ -32,16 +32,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/faq">FAQ</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Account" asp-action="Register">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Account" asp-action="Login">Login</a>
-                    </li>
                 </ul>
                 <div class="d-flex flex-row navbar-profile">
                     <img src="~/Tofft-png-holder/Notifications.png" class="navbar-notify" />
-                    <img src="~/Tofft-png-holder/temp-avatar.jpg" class="navbar-avatar rounded-circle" />
+                    <button onclick="window.location.href='@Url.Action("ControlPanel", "Account")'" class="navbar-avatar rounded-circle" />
                 </div>
             </div>
         </nav>

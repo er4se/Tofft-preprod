@@ -2,6 +2,20 @@ html {
   font-size: 14px;
 }
 
+@font-face {
+    font-family: 'Market Fresh';
+    src: url('../Content/Fonts/MarketFresh.woff2') format('woff2'),
+         url('../Content/Fonts/MarketFresh.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Market Fresh';
+    src: url('../Content/Fonts/MarketFreshBold.woff2') format('woff2'),
+         url('../Content/Fonts/MarketFreshBold.woff') format('woff');
+
+    font-weight: bold;
+}
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -26,7 +40,7 @@ html {
 }
 
 body {
-    font-family: 'Market Fresh';
+    font-family: 'Market Fresh'; /*Market Fresh*/
     background-color: #F7FFF7;
     margin-bottom: 60px;
 }

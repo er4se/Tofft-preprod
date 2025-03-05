@@ -32,7 +32,8 @@ namespace Tofft_preprod.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+                    await _userManager.AddToRoleAsync(user, "User");
+                    return RedirectToAction("UserBoards", "Board");
                 }
 
                 foreach (var error in result.Errors)
@@ -42,6 +43,11 @@ namespace Tofft_preprod.Controllers
             }
 
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult ControlPanel(){
+            return View();
         }
 
         [HttpGet]
@@ -59,6 +65,8 @@ namespace Tofft_preprod.Controllers
 
                 if (result.Succeeded)
                 {
+                    var user = await _userManager.FindByEmailAsync(model.Email);
+                    await _userManager.AddToRoleAsync(user, "User");
                     return RedirectToAction("Index", "Home");
                 }
 
