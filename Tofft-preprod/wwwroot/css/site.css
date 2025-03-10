@@ -1,6 +1,4 @@
-html {
-  font-size: 14px;
-}
+/*#region Outer*/
 
 @font-face {
     font-family: 'Market Fresh';
@@ -22,16 +20,23 @@ html {
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+:root{
+    --light-shade: #F7FFF7;
+    --dark-shade: #292F36;
+
+    --blue-accent: #4ECDC0;
+    --red-accent: #FF6B6B;
+    --yellow-accent: #FFE66D;
+
+    --blue-accent-hover: #34B4B2;
 }
 
-.add-button:focus, .add-button:active:focus, .add-button-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
+/*#endregion Outer*/
 
-.add-button:hover {
-    background-color: #34b4b2;
+/*#region General*/
+
+html {
+  font-size: 14px;
 }
 
 html {
@@ -40,10 +45,103 @@ html {
 }
 
 body {
-    font-family: 'Market Fresh'; /*Market Fresh*/
-    background-color: #F7FFF7;
+    font-family: 'Market Fresh';
+    background-color: var(--light-shade);
     margin-bottom: 60px;
 }
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+.btn {
+    background-color: var(--blue-accent);
+    color: white;
+    border: none;
+    padding: 20px 60px;
+    font-size: 16px;
+    margin-right: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+    .btn:last-child {
+        margin-right: 10px;
+    }
+
+    .btn:hover {
+        background-color: var(--blue-accent-hover);
+    }
+
+.add-button:focus, .add-button:active:focus, .add-button-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+    .add-button:hover {
+        background-color: var(--blue-accent-hover);
+    }
+
+.main-content{
+    padding-top: 96px;
+}
+
+.content-top-head {
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid #ddd;
+    border-radius: 15px 15px 0 0;
+    background-color: var(--dark-shade);
+    color: #F7FFF7;
+    height: 74px;
+}
+
+    .content-top-head button{
+        margin-left: 20px;
+    }
+
+.content-main-body {
+    padding: 0px;
+    border: 1px solid #ddd;
+    border-radius: 0 0 15px 15px;
+    background-color: #f7fff7;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+    .content-main-body .container{
+        padding: 0px;
+        margin: 0px;
+    }
+
+.page-content-container{
+    margin: 20px 0;
+}
+
+.add-button {
+    border: 0px;
+    background-color: #4ECDC4;
+    color: #F7FFF7;
+    height: 36px;
+    width: 36px;
+}
+
+.top-head-title{
+    color: var(--light-shade);
+
+    margin-left: 20px;
+    height: 34px;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.mini-icon-box {
+    height: 20px;
+    width: 20px;
+    background-color: var(--blue-accent);
+    
+    border: 0px solid #ddd;
+    border-radius: 5px;
+}
+
+/*#endregion*/
 
 /*#region Header*/
 
@@ -126,62 +224,22 @@ header .navbar-notify{
 }
 
 header .navbar-avatar{
+    background-color: var(--light-shade);
+    background-image: url("../Content/Images/avatar-placeholder.png");
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+
+    border: 0px;
+
     height: 54px;
     width: 54px;
 }
 
 /*#endregion*/
 
-.main-content{
-    padding-top: 96px; /*96px*/
-}
-
-.content-top-head {
-    margin: 0px;
-    padding: 0px;
-    border: 1px solid #ddd;
-    border-radius: 15px 15px 0 0;
-    background-color: #292f36;
-    color: #F7FFF7;
-    height: 74px;
-}
-
-    .content-top-head h1 {
-        margin-left: 20px;
-        height: 34px;
-        font-size: 36px;
-        font-weight: bold;
-    }
-
-    .content-top-head button{
-        margin-left: 20px;
-    }
-
-.content-main-body {
-    padding: 0px;
-    border: 1px solid #ddd;
-    border-radius: 0 0 15px 15px;
-    background-color: #f7fff7;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-}
-    .content-main-body .container{
-        padding: 0px;
-        margin: 0px;
-    }
-
-.page-content-container{
-    margin: 20px 0;
-}
-
-.add-button {
-    border: 0px;
-    background-color: #4ECDC4;
-    color: #F7FFF7;
-    height: 36px;
-    width: 36px;
-}
-
-/*#region footer*/
+/*#region Footer*/
 
 footer {
     background-color: #292f36;

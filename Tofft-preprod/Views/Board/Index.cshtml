@@ -1,0 +1,42 @@
+﻿@using Tofft_preprod.Models.ViewModels;
+@model BoardViewModel;
+
+<head>
+    <link rel="stylesheet" href="~/css/board.css" />
+</head>
+
+<body>
+    <content>
+        <div class="container page-content-container row">
+            <div class="content-top-head d-flex flex-row align-items-center">
+                <h1 class="top-head-title">@Model.Board.Title</h1>
+            </div>
+            <div>
+                <div class="content-top-head d-flex flex-row align-items-center">
+                    <h3 class="top-head-title">МЕНЮ</h3>
+                </div>
+                <button>Доска проекта</button>
+                <button>Моя доска</button>
+                <button>Проблемы</button>
+                <button>Репорты</button>
+                <button>Статистика</button>
+                <button>Календарь</button>
+            </div>
+            <div>
+                <div class="content-top-head d-flex flex-row align-items-center">
+                    <h3 class="top-head-title">ЗАДАЧИ</h3>
+                </div>
+            </div>
+            <div>
+                <div class="content-top-head d-flex flex-row align-items-center">
+                    <h3 class="top-head-title">В ПРОЦЕССЕ</h3>
+                </div>
+            </div>
+            <div>
+                <div class="content-top-head d-flex flex-row align-items-center">
+                    <h3 class="top-head-title">ГОТОВО</h3>
+                </div>
+            </div>
+        </div>
+    </content>
+</body>

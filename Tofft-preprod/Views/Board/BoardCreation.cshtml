@@ -1,0 +1,78 @@
+﻿@using Tofft_preprod.Models.ViewModels
+@using Tofft_preprod.Models
+@model BoardViewModel
+
+<head>
+    <link rel="stylesheet" href="~/css/board.css" />
+</head>
+
+<body>
+    <content>
+        <form asp-action="Create" method="post">
+            <div class="page-content-container container row">
+                <div class="content-top-head d-flex flex-row align-items-center">
+                    <h1 class="top-head-title">PROJECT CREATION</h1>
+                </div>
+                <div class="content-main-body">
+                    <div class="board-creation-cluster">
+                        <div class="board-creation-title d-flex flex-row align-items-center">
+                            <div class="mini-icon-box"></div>
+                            <h2 class="board-creation-subtitle">Основная информация</h2>
+                        </div>
+                        <div class="board-creation-input-block">
+                            <p class="board-creation-input-title">Название проекта:</p>
+                            <input asp-for="Board.Title" class="board-creation-input" />
+                        </div>
+                        <div class="board-creation-input-block">
+                            <p class="board-creation-input-title">Ваша компания:</p>
+                            <input asp-for="Board.Company" class="board-creation-input" />
+                        </div>
+                        <div class="board-creation-input-block">
+                            <p class="board-creation-input-title">Описание:</p>
+                            <input asp-for="Board.Description" class="board-creation-input" />
+                        </div>
+                        <div class="board-creation-input-block" style="pointer-events: none; opacity: 0.6;">
+                            <p class="board-creation-input-title">Фоновое изображение:</p>
+                            <input type="image" class="board-creation-input" />
+                        </div>
+                    </div>
+                    <div class="board-creation-cluster" style="pointer-events: none; opacity: 0.6;">
+                        <div class="board-creation-title d-flex flex-row align-items-center">
+                            <div class="mini-icon-box"></div>
+                            <h2 class="board-creation-subtitle">Разрешенные функции</h2>
+                        </div>
+                        <div class="board-creation-input-block d-flex flex-row">
+                            <input type="checkbox" class="board-creation-check" />
+                            <p class="board-creation-input-title">Включить отделы</p>
+                        </div>
+                        <div class="board-creation-input-block d-flex flex-row">
+                            <input type="checkbox" class="board-creation-check" />
+                            <p class="board-creation-input-title">Включить статистику</p>
+                        </div>
+                        <div class="board-creation-input-block d-flex flex-row">
+                            <input type="checkbox" class="board-creation-check" />
+                            <p class="board-creation-input-title">Включить календарь</p>
+                        </div>
+                    </div>
+                    <div class="board-creation-cluster" style="pointer-events: none; opacity: 0.6;">
+                        <div class="board-creation-title d-flex flex-row align-items-center">
+                            <div class="mini-icon-box"></div>
+                            <h2 class="board-creation-subtitle">Политика пользователей</h2>
+                        </div>
+                        <div class="board-creation-input-block d-flex flex-row">
+                            <input type="radio" class="board-creation-radio" />
+                            <p class="board-creation-input-title">Открытый доступ</p>
+                        </div>
+                        <div class="board-creation-input-block d-flex flex-row">
+                            <input type="radio" class="board-creation-radio" />
+                            <p class="board-creation-input-title">Доступ по ссылке</p>
+                        </div>
+                    </div>
+                    <div class="board-creation-buttons justify-content-center">
+                        <button class="btn" type="submit">Сохранить</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </content>
+</body>

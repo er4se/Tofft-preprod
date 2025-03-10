@@ -1,5 +1,6 @@
 ﻿@using Tofft_preprod.Models.ViewModels
-@model UserBoardsViewModel
+@using System.Web;
+@model BoardViewModel
 
 <head>
     <meta charset="utf-8" />
@@ -10,24 +11,42 @@
 
 <body>
     <content>
-        <form asp-action="UserBoards" method="dialog">
+        <form asp-action="UserBoards" method="post">
             <div class="page-content-container container row">
                 <div class="content-top-head d-flex flex-row align-items-center">
-                    <h1>YOUR PROJECTS</h1>
+                    <h1 class="top-head-title">YOUR PROJECTS</h1>
                     <button class="add-button rounded-circle" type="submit">+</button>
                 </div>
                 <div class="content-main-body">
                     <div class="container">
-                        <div class="row align-items-center text-center justify-content-center">
-                            <p>
-                                Кажется вы пока не участвуете ни в одном проекте :(<br />
-                                Вы можете создать собственный или присоединится к готовому <br />
-                                По приглашению-ссылке!
-                            </p>
-                            <img src="~/Tofft-png-holder/thinking.png" class="emoji" />
+                        <div class="container align-items-center text-center justify-content-center">
+                            @if (Model.UserBoards.Any())
+                            {
+                                @foreach(var board in Model.UserBoards)
+                                {
+                                    <div class="board-view-entity d-flex flex-row align-items-center">
+                                        <div class="temp-splash"></div>
+                                        <h2 class="board-list-title">@board.Title</h2>
+                                        <div class="board-list-buttonholder d-flex align-items-center justify-content-center">
+                                            @using (Html.BeginForm("ActionToIndex", "Board")){
+                                                <button type="submit" class="board-list-button rounded-circle">></button>
+                                            }
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <p>
+                                    Кажется вы пока не участвуете ни в одном проекте :(<br />
+                                    Вы можете создать собственный или присоединится к готовому <br />
+                                    По приглашению-ссылке!
+                                </p>
+                                <img src="~/Tofft-png-holder/thinking.png" class="emoji" />
+                            }
                         </div>
                         <div class="add-button-splash row justify-content-center">
-                            <button class="add-button rounded-circle" type="submit">+</button>
+                            <a asp-controller="Board" asp-action="BoardCreation" class="add-button rounded-circle">+</a>
                         </div>
                     </div>
                 </div>

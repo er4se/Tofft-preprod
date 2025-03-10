@@ -26,3 +26,97 @@
     .add-button-splash button {
         border: 1px solid #41B7AE;
     }
+
+/*#region CREATION PAGE*/
+
+.board-creation-subtitle{
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    padding-left: 20px;
+}
+
+.board-creation-input-title{
+    font-size: 18px !important;
+    font-weight: normal !important;
+
+    margin-bottom: 5px !important;
+}
+
+.board-creation-cluster{
+    margin: 0;
+    padding: 20px;
+}
+
+.board-creation-input {
+    border: 2px solid #ddd;
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
+    height: 36px;
+    width: 100%;
+    padding-left: 20px;
+    padding-top: 5px;
+    color: #767676;
+}
+
+.btn {
+    margin: 0 20px 20px 20px !important;
+}
+
+.board-view-entity {
+    margin: 20px !important;
+
+    border: 1px solid #ddd;
+    border-radius: 15px;
+
+    height: 160px;
+
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.board-list-title{
+    font-size: 32px;
+    margin-left: 20px;
+}
+
+.board-list-buttonholder {
+    height: 100%;
+    margin-left: auto;
+
+    border: 0px;
+    border-radius: 0px 15px 15px 0;
+
+    background-color: rgba(78, 205, 196, 0.2);
+}
+
+.board-list-button {
+    background-color: #4ECDC4;
+    color: #F7FFF7;
+
+    font-size: 42px;
+    text-decoration: none;
+
+    width: 100px;
+    height: 100px;
+    border: 0px;
+
+    margin: 0 20px;
+    
+    cursor: pointer;
+}
+
+.temp-splash {
+    height: 100%;
+    width: 300px;
+    background-image: url("../Content/Images/image-placeholder.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+
+    border: 0px solid #ddd;
+    border-radius: 15px 0 0px 15px;
+}
+
+/*#endregion*/
