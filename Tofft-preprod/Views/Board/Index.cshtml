@@ -2,41 +2,44 @@
 @model BoardViewModel;
 
 <head>
-    <link rel="stylesheet" href="~/css/board.css" />
+    <link rel="stylesheet" href="~/css/board-index.css" />
 </head>
 
 <body>
     <content>
-        <div class="container page-content-container row">
-            <div class="content-top-head d-flex flex-row align-items-center">
+        <div class="container page-content-container">
+            <div class="content-top-head d-flex flex-row align-items-center row">
                 <h1 class="top-head-title">@Model.Board.Title</h1>
             </div>
-            <div>
-                <div class="content-top-head d-flex flex-row align-items-center">
-                    <h3 class="top-head-title">МЕНЮ</h3>
+            <div class="board-index-content-holder d-flex flex-row row gy-2">
+                <div class="board-index-content col-auto d-flex flex-column">
+                    <div class="content-top-head top-head-nav d-flex flex-row align-items-center justify-content-center">
+                        <h3 class="top-head-title-h3">МЕНЮ</h3>
+                    </div>
+                    <button class="board-index-nav-btn">Доска проекта</button>
+                    <button class="board-index-nav-btn">Моя доска</button>
+                    <button class="board-index-nav-btn">Проблемы</button>
+                    <button class="board-index-nav-btn">Репорты</button>
+                    <button class="board-index-nav-btn">Статистика</button>
+                    <button class="board-index-nav-btn">Календарь</button>
                 </div>
-                <button>Доска проекта</button>
-                <button>Моя доска</button>
-                <button>Проблемы</button>
-                <button>Репорты</button>
-                <button>Статистика</button>
-                <button>Календарь</button>
-            </div>
-            <div>
-                <div class="content-top-head d-flex flex-row align-items-center">
-                    <h3 class="top-head-title">ЗАДАЧИ</h3>
+                <div class="board-index-content col-3">
+                    <div class="content-top-head d-flex flex-row align-items-center justify-content-center">
+                        <h3 class="top-head-title-h3">ЗАДАЧИ</h3>
+                    </div>
+                </div>
+                <div class="board-index-content col-3">
+                    <div class="content-top-head d-flex flex-row align-items-center justify-content-center">
+                        <h3 class="top-head-title-h3">В ПРОЦЕССЕ</h3>
+                    </div>
+                </div>
+                <div class="board-index-content col-3">
+                    <div class="content-top-head d-flex flex-row align-items-center justify-content-center">
+                        <h3 class="top-head-title-h3">ГОТОВО</h3>
+                    </div>
                 </div>
             </div>
-            <div>
-                <div class="content-top-head d-flex flex-row align-items-center">
-                    <h3 class="top-head-title">В ПРОЦЕССЕ</h3>
-                </div>
-            </div>
-            <div>
-                <div class="content-top-head d-flex flex-row align-items-center">
-                    <h3 class="top-head-title">ГОТОВО</h3>
-                </div>
-            </div>
+            
         </div>
     </content>
 </body>

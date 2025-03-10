@@ -21,22 +21,22 @@ namespace Tofft_preprod.Controllers
         }
 
         [HttpPost]
-        public ActionResult ActionToIndex()
+        public ActionResult ActionToIndex(string id)
         {
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new {id = id});
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string id)
         {
             var user = await _userManager.GetUserAsync(User);
             var viewModel = new BoardViewModel();
 
-            viewModel.UserBoards = await _context.Boards
-                .Where(b => b.AdminId == user.Id)
-                .ToListAsync();
+            var board = await _context.Boards
+                .Where(x => x.Id == id)
+                .FirstOrDefaultAsync();
 
-            viewModel.Board = viewModel.UserBoards.FirstOrDefault();
+            viewModel.Board = board;
 
             return View(viewModel);
         }

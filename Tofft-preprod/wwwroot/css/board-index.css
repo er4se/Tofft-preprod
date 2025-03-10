@@ -1,0 +1,68 @@
+﻿:root {
+    --light-shade: #F7FFF7;
+    --dark-shade: #292F36;
+    --blue-accent: #4ECDC0;
+    --red-accent: #FF6B6B;
+    --yellow-accent: #FFE66D;
+    --blue-accent-hover: #34B4B2;
+}
+
+body {
+    font-family: 'Market Fresh';
+    background-color: #F7FFF7;
+    margin: 0;
+    padding: 0;
+}
+
+.board-index-nav-btn{
+    background-color: var(--light-shade);
+    border: 1px solid #ddd;
+    padding: 16px 0;
+
+    font-size: 16px;
+}
+
+.top-head-title-h3{
+    font-size: 20px;
+    margin: 0;
+}
+
+.board-index-nav-btn:last-child{
+    margin-bottom: 20px;
+}
+
+.board-index-content-holder{
+    min-height: 80vh;
+    padding: 0;
+    margin: 0;
+}
+
+.board-index-content{
+    padding: 0;
+    margin: 0;
+    margin: 20px 10px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    background-color: var(--light-shade);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.board-index-content:last-child{
+
+    margin-right: 0px;
+}
+
+.board-index-content:first-child{
+    margin-left: 0px;
+    flex-grow: 1;
+
+    border-radius: 15px 0px 0px 15px;
+}
+
+.content-top-head{
+    height: 64px !important;
+}
+
+.top-head-nav {
+    border-radius: 15px 0px 0px 0px !important;
+}
