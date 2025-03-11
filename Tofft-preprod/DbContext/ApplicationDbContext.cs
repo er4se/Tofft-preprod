@@ -15,7 +15,7 @@ namespace Tofft_preprod.DbContext
 
         public DbSet<Tofft_preprod.Models.User> BaseUsers { get; set; }
         public DbSet<Tofft_preprod.Models.Board> Boards { get; set; }
-        public DbSet<Tofft_preprod.Models.Task> Tasks { get; set; }
+        public DbSet<Tofft_preprod.Models.Mission> Missions { get; set; }
         public DbSet<Tofft_preprod.Models.Report> Reports { get; set; }
         public DbSet<Tofft_preprod.Models.ImageData> Images { get; set; }
         public DbSet<Tofft_preprod.Models.FileData> Files { get; set; }

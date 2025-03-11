@@ -5,6 +5,7 @@ using Tofft_preprod.DbContext;
 using Microsoft.AspNetCore.Identity;
 using Tofft_preprod.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using Tofft_preprod.Repositories;
 
 namespace Tofft_preprod.Controllers
 {
@@ -12,12 +13,15 @@ namespace Tofft_preprod.Controllers
     public class BoardController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IRepository<Board> _repository;
         private readonly UserManager<IdentityUser> _userManager;
 
         public BoardController(UserManager<IdentityUser> userManager, ApplicationDbContext context)
         {
             _userManager = userManager;
             _context = context;
+
+            _repository = new BoardRepository(context);
         }
 
         [HttpPost]
@@ -32,9 +36,11 @@ namespace Tofft_preprod.Controllers
             var user = await _userManager.GetUserAsync(User);
             var viewModel = new BoardViewModel();
 
-            var board = await _context.Boards
-                .Where(x => x.Id == id)
-                .FirstOrDefaultAsync();
+            var board = await _repository.GetByIdAsync(id);
+
+            //var board = await _context.Boards
+            //    .Where(x => x.Id == id)
+            //    .FirstOrDefaultAsync();
 
             viewModel.Board = board;
 
@@ -59,7 +65,7 @@ namespace Tofft_preprod.Controllers
             var viewModel = new BoardViewModel();
 
             //viewModel.UserBoards = new List<Board>();
-            viewModel.UserBoards = await _context.Boards
+            viewModel.UserBoards = await _context.Boards    //UserToBoard actually
                 .Where(b => b.AdminId == user.Id)
                 .ToListAsync();
 
@@ -94,9 +100,9 @@ namespace Tofft_preprod.Controllers
             {
                 await _context.Boards.AddAsync(board);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("UserBoards");
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("UserBoards");
         }
     }
 }

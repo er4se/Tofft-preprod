@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Tofft_preprod.Models
 {
-    public class Task
+    public class Mission
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Id { get; set; }
