@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Tofft_preprod.DbContext;
+using Tofft_preprod.Models;
 
 namespace Tofft_preprod
 {
@@ -16,7 +17,7 @@ namespace Tofft_preprod
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+            builder.Services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 

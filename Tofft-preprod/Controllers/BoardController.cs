@@ -14,9 +14,9 @@ namespace Tofft_preprod.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IRepository<Board> _repository;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<User> _userManager;
 
-        public BoardController(UserManager<IdentityUser> userManager, ApplicationDbContext context)
+        public BoardController(UserManager<User> userManager, ApplicationDbContext context)
         {
             _userManager = userManager;
             _context = context;
@@ -37,10 +37,6 @@ namespace Tofft_preprod.Controllers
             var viewModel = new BoardViewModel();
 
             var board = await _repository.GetByIdAsync(id);
-
-            //var board = await _context.Boards
-            //    .Where(x => x.Id == id)
-            //    .FirstOrDefaultAsync();
 
             viewModel.Board = board;
 
@@ -98,8 +94,16 @@ namespace Tofft_preprod.Controllers
 
             if (ModelState.IsValid)
             {
-                await _context.Boards.AddAsync(board);
-                await _context.SaveChangesAsync();
+                await _repository.CreateAsync(board);
+
+                var userBoard = new UserToBoard
+                {
+                    UserId = user.Id,
+                    BoardId = board.Id,
+                    UserLocalSpeciality = "Administrator" // Указываем должность
+                };
+                
+                await _context.UserToBoards.AddAsync(userBoard);
                 return RedirectToAction("UserBoards");
             }
             return RedirectToAction("UserBoards");

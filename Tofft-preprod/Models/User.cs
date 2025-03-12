@@ -4,14 +4,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Tofft_preprod.Models
 {
-    public class User
+    public class User : IdentityUser
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string Id { get; set; }
-
-        public string Username { get; set; }
-        public string Email { get; set; }
-        public string Fullname {  get; set; }
-        public string About { get; set; }
+        public string Fullname { get; set; }
+        public string Bio { get; set; }
+        public string Speciality { get; set; }
+        
+        public List<UserToBoard> UserToBoards { get; set; }
     }
 }

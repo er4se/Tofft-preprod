@@ -5,7 +5,7 @@ using Tofft_preprod.Models;
 
 namespace Tofft_preprod.DbContext
 {
-    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
+    public class ApplicationDbContext : IdentityDbContext<User>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) 
             : base(options) 
@@ -13,7 +13,7 @@ namespace Tofft_preprod.DbContext
             Database.EnsureCreated();
         }
 
-        public DbSet<Tofft_preprod.Models.User> BaseUsers { get; set; }
+        public DbSet<Tofft_preprod.Models.UserToBoard> UserToBoards { get; set; }
         public DbSet<Tofft_preprod.Models.Board> Boards { get; set; }
         public DbSet<Tofft_preprod.Models.Mission> Missions { get; set; }
         public DbSet<Tofft_preprod.Models.Report> Reports { get; set; }
@@ -27,6 +27,20 @@ namespace Tofft_preprod.DbContext
             builder.Entity<Board>()
                 .Property(x => x.Id)
                 .ValueGeneratedOnAdd();
+
+            builder.Entity<UserToBoard>()
+                .HasKey(ub => new {ub.UserId, ub.BoardId});
+
+            builder.Entity<UserToBoard>()
+                .HasOne(ub => ub.User)
+                .WithMany(b => b.UserToBoards)
+                .HasForeignKey(ub => ub.UserId);
+
+            builder.Entity<UserToBoard>()
+                .HasOne(ub => ub.Board)
+                .WithMany(b => b.UserToBoards)
+                .HasForeignKey(ub => ub.BoardId);
+
         }
     }
 }

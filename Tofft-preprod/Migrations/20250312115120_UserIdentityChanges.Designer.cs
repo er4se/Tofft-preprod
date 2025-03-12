@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tofft_preprod.DbContext;
 
@@ -10,9 +11,11 @@ using Tofft_preprod.DbContext;
 namespace Tofft_preprod.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250312115120_UserIdentityChanges")]
+    partial class UserIdentityChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.2");
@@ -356,25 +359,6 @@ namespace Tofft_preprod.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("Tofft_preprod.Models.UserToBoard", b =>
-                {
-                    b.Property<string>("UserId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("BoardId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("UserLocalSpeciality")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("UserId", "BoardId");
-
-                    b.HasIndex("BoardId");
-
-                    b.ToTable("UserToBoards");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -424,35 +408,6 @@ namespace Tofft_preprod.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Tofft_preprod.Models.UserToBoard", b =>
-                {
-                    b.HasOne("Tofft_preprod.Models.Board", "Board")
-                        .WithMany("UserToBoards")
-                        .HasForeignKey("BoardId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Tofft_preprod.Models.User", "User")
-                        .WithMany("UserToBoards")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Board");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Tofft_preprod.Models.Board", b =>
-                {
-                    b.Navigation("UserToBoards");
-                });
-
-            modelBuilder.Entity("Tofft_preprod.Models.User", b =>
-                {
-                    b.Navigation("UserToBoards");
                 });
 #pragma warning restore 612, 618
         }

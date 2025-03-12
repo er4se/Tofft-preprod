@@ -10,5 +10,7 @@ namespace Tofft_preprod.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public string Company { get; set; }
+
+        public List<UserToBoard> UserToBoards { get; set; }
     }
 }
