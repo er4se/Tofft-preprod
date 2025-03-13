@@ -25,6 +25,7 @@ namespace Tofft_preprod.Controllers
         }
 
         [HttpPost]
+        [Authorize(Policy = "BoardMember")]
         public ActionResult ActionToIndex(string id)
         {
             return RedirectToAction("Index", new {id = id});
@@ -73,6 +74,7 @@ namespace Tofft_preprod.Controllers
         {
             ModelState.Remove("Board.Id");
             ModelState.Remove("Board.AdminId");
+            ModelState.Remove("Board.UserToBoards");
 
             var user = await _userManager.GetUserAsync(User);
             if (user != null)
@@ -95,15 +97,6 @@ namespace Tofft_preprod.Controllers
             if (ModelState.IsValid)
             {
                 await _repository.CreateAsync(board);
-
-                var userBoard = new UserToBoard
-                {
-                    UserId = user.Id,
-                    BoardId = board.Id,
-                    UserLocalSpeciality = "Administrator" // Указываем должность
-                };
-                
-                await _context.UserToBoards.AddAsync(userBoard);
                 return RedirectToAction("UserBoards");
             }
             return RedirectToAction("UserBoards");

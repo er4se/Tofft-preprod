@@ -24,9 +24,9 @@ namespace Tofft_preprod.DbContext
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<Board>()
-                .Property(x => x.Id)
-                .ValueGeneratedOnAdd();
+            //builder.Entity<Board>()
+            //    .Property(x => x.Id)
+            //    .ValueGeneratedOnAdd();
 
             builder.Entity<UserToBoard>()
                 .HasKey(ub => new {ub.UserId, ub.BoardId});

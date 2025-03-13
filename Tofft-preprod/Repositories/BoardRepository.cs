@@ -45,8 +45,20 @@ public class BoardRepository : IRepository<Board>{
     public async Task CreateAsync(Board entity)
     {
         try
-        {
+        {   
+            entity.Id = Guid.NewGuid().ToString();
+
+            var userToBoard = new UserToBoard
+            {
+                UserId = entity.AdminId,
+                BoardId = entity.Id,
+                UserLocalSpeciality = "Administrator",
+                Role = BoardRole.Admin
+            };
+
             await _context.Boards.AddAsync(entity);
+            await _context.UserToBoards.AddAsync(userToBoard);
+
             await _context.SaveChangesAsync();
         }
         catch(Exception ex)
