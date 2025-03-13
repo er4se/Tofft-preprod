@@ -12,5 +12,6 @@ namespace Tofft_preprod.Models
         public string Company { get; set; }
 
         public List<UserToBoard> UserToBoards { get; set; }
+        public List<Mission> Missions { get; set; }
     }
 }

@@ -41,6 +41,10 @@ namespace Tofft_preprod.DbContext
                 .WithMany(b => b.UserToBoards)
                 .HasForeignKey(ub => ub.BoardId);
 
+            builder.Entity<Mission>()
+                .HasOne(m => m.Board)
+                .WithMany(b => b.Missions)
+                .HasForeignKey(m => m.BoardId);
         }
     }
 }
