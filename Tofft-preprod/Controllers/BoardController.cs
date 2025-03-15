@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Tofft_preprod.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Tofft_preprod.Repositories;
+using System.Diagnostics;
 
 namespace Tofft_preprod.Controllers
 {
@@ -24,15 +25,9 @@ namespace Tofft_preprod.Controllers
             _repository = new BoardRepository(context);
         }
 
-        [HttpPost]
-        [Authorize(Policy = "BoardMember")]
-        public ActionResult ActionToIndex(string id)
-        {
-            return RedirectToAction("Index", new {id = id});
-        }
-
         [HttpGet]
-        public async Task<IActionResult> Index(string id)
+        [Authorize(Policy = "BoardMember")]
+        public async Task<IActionResult> Details(string id) //index 
         {
             var user = await _userManager.GetUserAsync(User);
             var viewModel = new BoardViewModel();
@@ -45,28 +40,24 @@ namespace Tofft_preprod.Controllers
         }
 
         [HttpGet]
-        public IActionResult Taskboard()
-        {
-            return View();
-        }
-        
-        [HttpGet]
-        public IActionResult BoardCreation(){
-            return View();
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> UserBoards()
+        public async Task<IActionResult> Index() //userboards
         {
             var user = await _userManager.GetUserAsync(User);
             var viewModel = new BoardViewModel();
 
-            //viewModel.UserBoards = new List<Board>();
-            viewModel.UserBoards = await _context.Boards    //UserToBoard actually
-                .Where(b => b.AdminId == user.Id)
+            viewModel.UserBoards = await _context.UserToBoards
+                .Where(utb => utb.UserId == user.Id)
+                .Select(utb => utb.Board)
                 .ToListAsync();
 
             return View(viewModel);
+        }
+
+        #region Create
+
+        [HttpGet]
+        public IActionResult Create(){
+            return View();
         }
 
         [HttpPost]
@@ -75,6 +66,7 @@ namespace Tofft_preprod.Controllers
             ModelState.Remove("Board.Id");
             ModelState.Remove("Board.AdminId");
             ModelState.Remove("Board.UserToBoards");
+            ModelState.Remove("Board.Missions");
 
             var user = await _userManager.GetUserAsync(User);
             if (user != null)
@@ -101,5 +93,7 @@ namespace Tofft_preprod.Controllers
             }
             return RedirectToAction("UserBoards");
         }
+
+        #endregion
     }
 }

@@ -1,57 +1,51 @@
-﻿@using Tofft_preprod.Models.ViewModels;
-@model BoardViewModel;
+﻿@using Tofft_preprod.Models.ViewModels
+@using System.Web;
+@model BoardViewModel
 
 <head>
-    <link rel="stylesheet" href="~/css/board-index.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tofft</title>
+    <link rel="stylesheet" href="~/css/board.css" />
 </head>
 
 <body>
     <content>
-        <div class="container page-content-container">
-            <div class="content-top-head d-flex flex-row align-items-center row">
-                <h1 class="top-head-title">@Model.Board.Title</h1>
+        <div class="page-content-container container row">
+            <div class="content-top-head d-flex flex-row align-items-center">
+                <h1 class="top-head-title">YOUR PROJECTS</h1>
+                <button class="add-button rounded-circle" type="submit">+</button>
             </div>
-            <div class="board-index-content-holder d-flex flex-row row gy-2">
-                <div class="board-index-content col-auto d-flex flex-column">
-                    <div class="content-top-head top-head-nav d-flex flex-row align-items-center justify-content-center">
-                        <h3 class="top-head-title-h3">МЕНЮ</h3>
-                    </div>
-                    <button class="board-index-nav-btn">Доска проекта</button>
-                    <button class="board-index-nav-btn">Моя доска</button>
-                    <button class="board-index-nav-btn">Проблемы</button>
-                    <button class="board-index-nav-btn">Репорты</button>
-                    <button class="board-index-nav-btn">Статистика</button>
-                    <button class="board-index-nav-btn">Календарь</button>
-                </div>
-                <div class="board-index-content col-3">
-                    <div class="content-top-head d-flex flex-row align-items-center justify-content-center">
-                        <h3 class="top-head-title-h3">ЗАДАЧИ</h3>
-                    </div>                    
-                </div>
-                <div class="board-index-content col-3">
-                    <div class="content-top-head d-flex flex-row align-items-center justify-content-center">
-                        <h3 class="top-head-title-h3">В ПРОЦЕССЕ</h3>
-                    </div>
-                    <div class="mission-tab-holder">
-                        <div class="mission-tab d-flex flex-column">
-                            <div class="mission-tab-info-top d-flex flex-row">
-                                <div class="mission-status-view rounded-circle"></div>
-                                <div class="mission-group-view d-flex flex-row align-items-center justify-content-center">
-                                    <h5>FRONT</h5>
+            <div class="content-main-body">
+                <div class="container">
+                    <div class="container align-items-center text-center justify-content-center">
+                        @if (Model.UserBoards.Any())
+                        {
+                            @foreach(var board in Model.UserBoards)
+                            {
+                                <div class="board-view-entity d-flex flex-row align-items-center">
+                                    <div class="temp-splash"></div>
+                                    <h2 class="board-list-title">@board.Title</h2>
+                                    <div class="board-list-buttonholder d-flex align-items-center justify-content-center">
+                                        @using (Html.BeginForm("Details", "Board", new {id = board.Id}, FormMethod.Get)){
+                                            <button type="submit" class="board-list-button rounded-circle">></button>
+                                        }
+                                    </div>
                                 </div>
-                                <div class="mission-executor-view rounded-circle"></div>
-                            </div>
-                            <div class="mission-tab-info-bot d-flex flex-column">
-                                <h4 class="mission-title">ИЗМЕНЕНИЯ увувьефьевье унутве фьевие обемугхем осас самый классный нигер на районе, я ебал того рот уху</h4>
-                                <div class="mission-attachments-view"></div>
-                            </div>
-                        </div>
-
+                            }
+                        }
+                        else
+                        {
+                            <p>
+                                Кажется вы пока не участвуете ни в одном проекте :(<br />
+                                Вы можете создать собственный или присоединится к готовому <br />
+                                По приглашению-ссылке!
+                            </p>
+                            <img src="~/Tofft-png-holder/thinking.png" class="emoji" />
+                        }
                     </div>
-                </div>
-                <div class="board-index-content col-3">
-                    <div class="content-top-head d-flex flex-row align-items-center justify-content-center">
-                        <h3 class="top-head-title-h3">ГОТОВО</h3>
+                    <div class="add-button-splash row justify-content-center">
+                        <a asp-controller="Board" asp-action="Create" class="add-button rounded-circle">+</a>
                     </div>
                 </div>
             </div>
