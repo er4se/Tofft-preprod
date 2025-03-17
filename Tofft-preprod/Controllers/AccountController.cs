@@ -34,7 +34,7 @@ namespace Tofft_preprod.Controllers
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     await _userManager.AddToRoleAsync(user, "User");
-                    return RedirectToAction("UserBoards", "Board");
+                    return RedirectToAction("Index", "Board");
                 }
 
                 foreach (var error in result.Errors)
@@ -68,7 +68,7 @@ namespace Tofft_preprod.Controllers
                 {
                     var user = await _userManager.FindByEmailAsync(model.Email);
                     await _userManager.AddToRoleAsync(user, "User");
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Board");
                 }
 
                 ModelState.AddModelError(string.Empty, "Invalid login attempt.");

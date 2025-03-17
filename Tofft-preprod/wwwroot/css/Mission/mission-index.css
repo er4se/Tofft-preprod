@@ -1,0 +1,83 @@
+﻿:root {
+    --light-shade: #F7FFF7;
+    --dark-shade: #292F36;
+    --blue-accent: #4ECDC0;
+    --red-accent: #FF6B6B;
+    --yellow-accent: #FFE66D;
+    --blue-accent-hover: #34B4B2;
+}
+
+body {
+    font-family: 'Market Fresh';
+    background-color: #F7FFF7;
+    margin: 0;
+    padding: 0;
+}
+
+.mission-content{
+    margin: 20px;
+}
+
+.mission-title{
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.mission-status-title{
+    font-weight: bold;
+    font-size: 20px
+}
+
+.mission-status{
+    font-weight: bold;
+    font-size: 20px;
+
+    margin-left: 10px;
+}
+
+    .mission-status#available{
+        color: var(--blue-accent);
+    }
+    .mission-status#processing{
+        color: var(--red-accent);
+    }
+    .mission-status#done{
+        color: var(--yellow-accent);
+    }
+
+.mission-deadline-title {
+    font-weight: bold;
+    font-size: 20px
+}
+
+.mission-deadline {
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+    .mission-deadline#good {
+        color: var(--blue-accent);
+    }
+
+    .mission-deadline#danger {
+        color: var(--red-accent);
+    }
+
+    .mission-deadline#normal {
+        color: var(--yellow-accent);
+    }
+
+.mission-description-holder{
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+
+    min-height: 200px;
+}
+
+.mission-description{
+    font-size: 18px;
+    font-weight: normal;
+}

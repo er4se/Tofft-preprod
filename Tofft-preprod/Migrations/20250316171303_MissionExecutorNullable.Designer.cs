@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tofft_preprod.DbContext;
 
@@ -10,9 +11,11 @@ using Tofft_preprod.DbContext;
 namespace Tofft_preprod.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250316171303_MissionExecutorNullable")]
+    partial class MissionExecutorNullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.2");
@@ -287,6 +290,7 @@ namespace Tofft_preprod.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Bio")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -301,6 +305,7 @@ namespace Tofft_preprod.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Fullname")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("LockoutEnabled")
@@ -330,6 +335,7 @@ namespace Tofft_preprod.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Speciality")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("TwoFactorEnabled")

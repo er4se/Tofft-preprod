@@ -27,7 +27,8 @@
                                     <div class="temp-splash"></div>
                                     <h2 class="board-list-title">@board.Title</h2>
                                     <div class="board-list-buttonholder d-flex align-items-center justify-content-center">
-                                        @using (Html.BeginForm("Details", "Board", new {id = board.Id}, FormMethod.Get)){
+                                        @using (Html.BeginForm("Details", "Board", new { id = board.Id }, FormMethod.Get))
+                                        {
                                             <button type="submit" class="board-list-button rounded-circle">></button>
                                         }
                                     </div>

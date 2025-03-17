@@ -11,6 +11,8 @@ namespace Tofft_preprod.Models
 
         [Required(ErrorMessage = "Срок выполнения обязателен")]
         [DisplayName("Срок выполнения задачи")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Deadline { get; set; }
 
         [DisplayName("Описание задачи")]

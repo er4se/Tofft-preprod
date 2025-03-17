@@ -1,0 +1,56 @@
+﻿@using Tofft_preprod.Models;
+@model MissionIndexViewModel;
+
+<head>
+    <link rel="stylesheet" href="~/css/mission.css" />
+    <link rel="stylesheet" href="~/css/Mission/mission-index.css"/>
+</head>
+
+<body>
+    <content>
+        <div class="page-content-container container row">
+            <div class="content-top-head d-flex flex-row align-items-center">
+                <h1 class="top-head-title">ЗАДАЧА @Model.Mission.Id</h1>
+            </div>
+            <div class="content-main-body d-flex flex-column">
+                <div class="mission-content">
+                    <h1 class="mission-title">@Model.Mission.Title</h1>
+                    <div class="d-flex flex-row">
+                        <h4 class="mission-status-title">Статус:</h4>
+                        @switch (Model.Mission.Status)
+                        {
+                            case(MissionStatus.Available):
+                                <h4 id="available" class="mission-status">@Model.Mission.Status</h4>
+                                break;
+                            case (MissionStatus.Processing):
+                                <h4 id="processing" class="mission-status">@Model.Mission.Status</h4>
+                                break;
+                            case (MissionStatus.Done):
+                                <h4 id="done" class="mission-status">@Model.Mission.Status</h4>
+                                break;
+                        }
+                    </div>
+                    <div class="mission-description-holder">
+                        <p class="mission-description">@Model.Mission.Description</p>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <h4 class="mission-deadline-title">Срок сдачи:</h4>
+                        @if (Model.Mission.Deadline.Subtract(DateTime.Today).Days <= 1)
+                        {
+                            <h4 id="danger" class="mission-deadline">@Model.Mission.Deadline</h4>
+                        }
+                        else if (Model.Mission.Deadline.Subtract(DateTime.Today).Days <= 3)
+                        {
+                            <h4 id="normal" class="mission-deadline">@Model.Mission.Deadline</h4>
+                        }
+                        else
+                        {
+                            <h4 id="good" class="mission-deadline">@Model.Mission.Deadline</h4>
+                        }
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </content>
+</body>

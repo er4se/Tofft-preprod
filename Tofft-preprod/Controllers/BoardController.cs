@@ -89,9 +89,9 @@ namespace Tofft_preprod.Controllers
             if (ModelState.IsValid)
             {
                 await _repository.CreateAsync(board);
-                return RedirectToAction("UserBoards");
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("UserBoards");
+            return RedirectToAction("Index");
         }
 
         #endregion

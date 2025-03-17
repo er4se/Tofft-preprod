@@ -1,0 +1,13 @@
+﻿@using Tofft_preprod.Models;
+@model IEnumerable<Mission>;
+
+<head>
+    <link rel="stylesheet" href="~/css/board-index.css" />
+</head>
+
+<div class="mission-tab-holder">
+    @foreach (var mission in Model)
+    {
+        @await Html.PartialAsync($"~/Views/Mission/_IndexPartial.cshtml", mission)
+    }
+</div>

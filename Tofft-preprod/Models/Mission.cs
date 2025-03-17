@@ -8,8 +8,8 @@ namespace Tofft_preprod.Models
     {
         public string Id { get; set; }
         public string BoardId { get; set; }
-        public string CreatorId { get; set; }
-        public string ExecutorId { get; set; }
+        public string? CreatorId { get; set; }
+        public string? ExecutorId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public MissionStatus Status { get; set; }
@@ -33,13 +33,15 @@ namespace Tofft_preprod.Models
             this.Description = dto.Description;
             this.Group = dto.Group;
             this.Deadline = dto.Deadline;
+
+            this.Status = MissionStatus.Available;
         }
     }
 
     public enum MissionStatus
     {
         Unknown = 0,
-        Ready = 1,
+        Available = 1,
         Processing = 2,
         Done = 3
     }

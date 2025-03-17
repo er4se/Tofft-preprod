@@ -75,7 +75,9 @@ namespace Tofft_preprod
                     var httpContext = context.Resource as DefaultHttpContext;
                     if (httpContext == null) return false;
 
-                    var boardId = httpContext.Request.RouteValues["id"] as string;
+                    var boardId = httpContext.Request.RouteValues["boardId"] as string;
+                    boardId = boardId ?? httpContext.Request.RouteValues["id"] as string;
+
                     var userId = httpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
                     if (string.IsNullOrEmpty(userId) || (string.IsNullOrEmpty(boardId)))
