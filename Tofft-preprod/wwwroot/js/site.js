@@ -7,6 +7,11 @@
     })
 });
 
+function redirectToConcreteMission(id) {
+    var url = '@Url.Action("Index", "MissionController")' + '?id=' + id;
+    window.location.href = url;
+}
+
 $.datepicker.regional['ru'] = {
     closeText: 'Закрыть',
     prevText: 'Пред',

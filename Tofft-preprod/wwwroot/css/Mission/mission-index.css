@@ -81,3 +81,7 @@ body {
     font-size: 18px;
     font-weight: normal;
 }
+
+.btn:last-child{
+    margin-left: auto !important;
+}

@@ -6,9 +6,27 @@ using Microsoft.AspNetCore.Identity;
 using Tofft_preprod.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Tofft_preprod.Repositories;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Tofft_preprod.Controllers
 {
+    public class BoardIdRequiredFilter : IActionFilter
+    {
+        public void OnActionExecuting(ActionExecutingContext context)
+        {
+            var boardId = context.RouteData.Values["boardId"] as string;
+            if (string.IsNullOrEmpty(boardId))
+            {
+                // Логика, если boardId не найден (например, редирект)
+                context.Result = new RedirectResult("Index");
+            }
+        }
+
+        public void OnActionExecuted(ActionExecutedContext context)
+        {
+        }
+    }
+
     [Authorize(Policy = "RequireUser")]
     [Route("Board/{boardId}/Mission/[action]")]
     public class MissionController: Controller
@@ -25,13 +43,11 @@ namespace Tofft_preprod.Controllers
             _missionRepository = new MissionRepository(context);
         }
 
-        [Authorize(Policy = "BoardLead")]
+        [Authorize(Policy = "BoardMember")]
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index(string boardId, string id)
         {
-            var mission = _context.Missions
-                .Where(m => m.Status == MissionStatus.Available)
-                .FirstOrDefault();
+            var mission = await _missionRepository.GetByIdAsync(id);
 
             if (mission is null)
                 return RedirectToAction("Error");
@@ -42,6 +58,38 @@ namespace Tofft_preprod.Controllers
             return View(vm);
         }
 
+        [Authorize(Policy = "BoardMember")]
+        [HttpPost]
+        public async Task<IActionResult> UpdateStatus(string boardId, string id)
+        {
+            var entity = await _missionRepository.GetByIdAsync(id);
+
+            switch (entity.Status)
+            {
+                case MissionStatus.Available:
+                    entity.Status = MissionStatus.Processing;
+                    break;
+                case MissionStatus.Processing:
+                    entity.Status = MissionStatus.Done;
+                    break;
+                default:
+                    Console.WriteLine("Не возможно изменить статус");
+                    //Добавить Error по строке\\
+                    break;
+            }
+
+            await _missionRepository.UpdateAsync(entity);
+            return RedirectToAction("Index");
+        }
+
+        [Authorize(Policy = "BoardLead")]
+        [HttpGet]
+        public IActionResult Edit()
+        {
+            return View();
+        }
+
+        [Authorize(Policy = "BoardLead")]
         [HttpGet]
         public IActionResult Create()
         {

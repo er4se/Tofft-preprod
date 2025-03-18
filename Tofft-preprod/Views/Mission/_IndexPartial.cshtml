@@ -5,7 +5,9 @@
     <link rel="stylesheet" href="~/css/board-index.css" />
 </head>
 
-<div class="mission-tab d-flex flex-column">
+<div class="mission-tab d-flex flex-column"
+     onclick="window.location.href='@Url.Action("Index", "Mission", new { boardId = Model.BoardId, id = Model.Id })'"
+     style="cursor: pointer;">
     <div class="mission-tab-info-top d-flex flex-row">
         <div class="mission-status-view rounded-circle"></div>
         <div class="mission-group-view d-flex flex-row align-items-center justify-content-center">

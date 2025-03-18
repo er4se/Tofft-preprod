@@ -30,7 +30,7 @@
                     </div>
                     <div class="mission-create-TEMP">
                         <a asp-controller="Mission" asp-action="Create" asp-route-boardId="@Model.Board.Id">PLUS</a>
-                        <a asp-controller="Mission" asp-action="Index" asp-route-boardId="@Model.Board.Id">EDIT</a>
+                        <a asp-controller="Mission" asp-action="Index" asp-route-id="@Model.Board.Id">EDIT</a>
                     </div>
                     
                     @await Component.InvokeAsync("MissionList", new { boardId = Model.Board.Id, status = MissionStatus.Available })
