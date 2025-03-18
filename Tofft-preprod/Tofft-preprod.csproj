@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Content\Images\" />
+    <Folder Include="wwwroot\css\Board\" />
   </ItemGroup>
 
 </Project>

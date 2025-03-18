@@ -57,7 +57,10 @@
                                     method="post">
                                     <button class="btn">Взять в работу</button>
                                 </form>
-                                <button class="btn">Редактировать</button>
+                                <a asp-action="Edit"
+                                    asp-route-boardId="@Model.Mission.BoardId"
+                                    asp-route-id="@Model.Mission.Id"
+                                    method="get" class="btn">Редактировать</a>
                                 break;
                             case (MissionStatus.Processing):
                                 <form asp-controller="Mission" asp-action="UpdateStatus"

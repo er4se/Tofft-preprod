@@ -28,7 +28,7 @@ namespace Tofft_preprod.Controllers
     }
 
     [Authorize(Policy = "RequireUser")]
-    [Route("Board/{boardId}/Mission/[action]")]
+    [Route("Board/{boardId}/Mission/[action]/{id?}")]
     public class MissionController: Controller
     {
         private readonly ApplicationDbContext _context;
@@ -63,11 +63,13 @@ namespace Tofft_preprod.Controllers
         public async Task<IActionResult> UpdateStatus(string boardId, string id)
         {
             var entity = await _missionRepository.GetByIdAsync(id);
+            var user = await _userManager.GetUserAsync(User);
 
             switch (entity.Status)
             {
                 case MissionStatus.Available:
                     entity.Status = MissionStatus.Processing;
+                    entity.ExecutorId = user.Id;
                     break;
                 case MissionStatus.Processing:
                     entity.Status = MissionStatus.Done;
@@ -79,14 +81,44 @@ namespace Tofft_preprod.Controllers
             }
 
             await _missionRepository.UpdateAsync(entity);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { boardId, id });
         }
 
         [Authorize(Policy = "BoardLead")]
         [HttpGet]
-        public IActionResult Edit()
+        public async Task<IActionResult> Edit(string boardId, string id)
         {
-            return View();
+            var mission = await _missionRepository.GetByIdAsync(id);
+            var dto = new MissionDTO
+            {
+                Title = mission.Title,
+                Description = mission.Description,
+                Deadline = mission.Deadline,
+                Group = mission.Group
+            };
+
+            return View(dto);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(string boardId, string id, MissionDTO dto)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            var mission = await _missionRepository.GetByIdAsync(id);
+
+            if (ModelState.IsValid)
+            {
+                mission.Title = dto.Title;
+                mission.Description = dto.Description;
+                mission.Deadline = dto.Deadline;
+                mission.Group = dto.Group;
+
+                await _missionRepository.UpdateAsync(mission);
+
+                return RedirectToAction("Index", new { boardId, id });
+            }
+
+            return RedirectToAction("Error");
         }
 
         [Authorize(Policy = "BoardLead")]
@@ -110,7 +142,8 @@ namespace Tofft_preprod.Controllers
 
                 await _missionRepository.CreateAsync(mission);
 
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index", new { boardId }); //mission id не прилетает
+                return RedirectToAction("Index", "Board");
             }
 
             return RedirectToAction("Error");
