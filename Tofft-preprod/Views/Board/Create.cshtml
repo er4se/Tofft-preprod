@@ -1,6 +1,6 @@
 ﻿@using Tofft_preprod.Models.ViewModels
 @using Tofft_preprod.Models
-@model BoardViewModel
+@model BoardDTO
 
 <head>
     <link rel="stylesheet" href="~/css/board.css" />
@@ -21,15 +21,15 @@
                         </div>
                         <div class="board-creation-input-block">
                             <p class="board-creation-input-title">Название проекта:</p>
-                            <input asp-for="Board.Title" class="board-creation-input" />
+                            <input asp-for="Title" class="board-creation-input" />
                         </div>
                         <div class="board-creation-input-block">
                             <p class="board-creation-input-title">Ваша компания:</p>
-                            <input asp-for="Board.Company" class="board-creation-input" />
+                            <input asp-for="Company" class="board-creation-input" />
                         </div>
                         <div class="board-creation-input-block">
                             <p class="board-creation-input-title">Описание:</p>
-                            <input asp-for="Board.Description" class="board-creation-input" />
+                            <input asp-for="Description" class="board-creation-input" />
                         </div>
                         <div class="board-creation-input-block" style="pointer-events: none; opacity: 0.6;">
                             <p class="board-creation-input-title">Фоновое изображение:</p>

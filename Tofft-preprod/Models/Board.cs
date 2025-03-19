@@ -13,5 +13,17 @@ namespace Tofft_preprod.Models
 
         public List<UserToBoard> UserToBoards { get; set; }
         public List<Mission> Missions { get; set; }
+
+        public Board()
+        {
+            Id = Guid.NewGuid().ToString();
+        }
+
+        public Board(BoardDTO dto) : this()
+        {
+            this.Title = dto.Title;
+            this.Company = dto.Company;
+            this.Description = dto.Description;
+        }
     }
 }

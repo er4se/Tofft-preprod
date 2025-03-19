@@ -143,7 +143,7 @@ namespace Tofft_preprod.Controllers
                 await _missionRepository.CreateAsync(mission);
 
                 //return RedirectToAction("Index", new { boardId }); //mission id не прилетает
-                return RedirectToAction("Index", "Board");
+                return RedirectToAction("Index", new { boardId, mission.Id });
             }
 
             return RedirectToAction("Error");

@@ -61,7 +61,24 @@ namespace Tofft_preprod.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([Bind(Prefix = "Board")] Board board)
+        public async Task<IActionResult> Create(BoardDTO dto)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            var board = new Board(dto);
+
+            board.AdminId = user.Id;
+
+            if (ModelState.IsValid)
+            {
+                await _repository.CreateAsync(board);
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Error");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateOLD([Bind(Prefix = "Board")] Board board)
         {
             ModelState.Remove("Board.Id");
             ModelState.Remove("Board.AdminId");
