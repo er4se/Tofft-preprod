@@ -1,0 +1,14 @@
+﻿@using Tofft_preprod.Models;
+@model List<JoinRequest>
+
+<h2>Заявки на вступление</h2>
+@foreach (var request in Model)
+{
+    <div class="request">
+        <p>Пользователь: @request.User.UserName</p>
+        <form asp-action="Approve" method="post">
+            <input type="hidden" name="requestId" value="@request.Id" />
+            <button type="submit">Одобрить</button>
+        </form>
+    </div>
+}

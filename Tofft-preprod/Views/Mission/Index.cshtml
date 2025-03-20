@@ -72,7 +72,13 @@
                                 <button class="btn">Редактировать</button>
                                 break;
                             case (MissionStatus.Done):
-                                <button class="btn">Удалить сейчас</button>
+                                <form asp-controller="Mission" asp-action="Delete"
+                                      asp-route-boardId="@Model.Mission.BoardId"
+                                      asp-route-id="@Model.Mission.Id"
+                                      method="post">
+
+                                    <button type="submit" class="btn">Удалить сейчас</button>
+                                </form>
                                 <button class="btn">Задать дату удаления</button>
                                 break;
                         }

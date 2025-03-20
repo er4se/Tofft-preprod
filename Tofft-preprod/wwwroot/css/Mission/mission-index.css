@@ -86,6 +86,8 @@ body {
     margin-left: auto !important;
 }
 
+/*_IndexPartial.cshtml*/
+
 .mission-tab-holder {
     overflow-y: auto;
     overflow-x: hidden;
@@ -95,145 +97,114 @@ body {
     height: 90%;
 }
 
-.mission-tab {
-    background-color: var(--light-shade);
-    border: 1px solid #ddd;
-    border-radius: 0 15px 15px 15px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    .mission-tab {
+        background-color: var(--light-shade);
+        border: 1px solid #ddd;
+        border-radius: 0 15px 15px 15px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+        margin: 10px;
+        padding: 10px;
+    }
 
-    min-height: 100px;
-    margin: 10px;
-    padding: 10px;
+.mission-tab-info#first{
+    margin-top: 0px;
 }
 
-.mission-tab-create {
-    background-color: var(--blue-accent);
-    border: 1px solid #ddd;
-    border-radius: 15px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-    min-height: 40px;
-    margin: 10px;
-    margin-bottom: 0px;
-    padding: 0px;
-}
+    .mission-tab-status {
+        background-image: url("../../Content/Images/fire-icon.png");
+        background-size: 60%;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: center;
+        height: 24px;
+        width: 24px;
+        margin-right: 10px;
+    }
+    
+        .mission-tab-status#danger{
+            background-color: var(--red-accent);
+        }
+    
+        .mission-tab-status#normal{
+            background-color: var(--yellow-accent);
+        }
+    
+        .mission-tab-status#good{
+            background-color: var(--blue-accent);
+        }
 
-    .mission-tab-create a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: bold;
-        text-decoration: none;
-        margin: 0px;
-        padding: 0px;
-        width: 100%;
-        height: 40px;
 
+    .mission-tab-group {
+        background-color: var(--blue-accent);
+        height: 24px;
+        padding: 5px 10px;
         border: 0px;
         border-radius: 15px;
-
-        color: var(--light-shade);
     }
-
-        .mission-tab-create a:focus {
-            box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    
+        .mission-tab-group h5 {
+            padding: 0px;
+            margin: 0px;
+            color: var(--light-shade);
+            font-weight: bold;
+            font-size: 14px;
         }
 
-        .mission-tab-create a:hover {
-            background-color: var(--blue-accent-hover);
-        }
-
-.mission-status-view{
-    background-color: var(--blue-accent);
-    height: 24px;
-    width: 24px;
-
-    margin-right: 10px;
-}
-
-.mission-group-view{
-    background-color: var(--blue-accent);
-    height: 24px;
-    padding: 5px 10px;
-
-    border: 0px;
-    border-radius: 15px;
-}
-
-    .mission-group-view h5{
-        padding: 0px;
-        margin: 0px;
-        color: var(--light-shade);
-        font-weight: bold;
-        font-size: 14px;
-    }
-
-.mission-executor-view {
-    background-color: var(--light-shade);
-    background-image: url("../Content/Images/avatar-placeholder.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: center;
-
-    height: 24px;
-    width: 24px;
-    margin-left: auto;
-}
-
-.mission-tab-info-bot{
-    margin-top: 10px;
-}
-
-    .mission-title{
-        font-size: 16px;
-        font-weight: normal;
-        margin: 0px;
-
-        text-align: justify;
-    }
-
-    .mission-tab-attachments{
-        background-image: url("../Content/Images/attach-file.png");
+    .mission-tab-executor {
+        background-color: var(--light-shade);
+        background-image: url("../../Content/Images/avatar-placeholder.png");
         background-size: contain;
         background-repeat: no-repeat;
         background-position-x: center;
         background-position-y: center;
         height: 24px;
-        width: 24px !important;
-        margin-top: 10px;
+        width: 24px;
         margin-left: auto;
-
-        border: 0px;
-        border-radius: 15px;
     }
 
-.mission-tab-status{
-    background-image: url("../Content/Images/fire-icon.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: center;
 
-    height: 24px;
-    width: 24px;
 
-    margin-right: 10px;
+.mission-tab-title{
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0px;
+    margin-top: 10px;
+
+    text-align: justify;
 }
 
-    .mission-tab-status#danger{
-        background-color: var(--red-accent);
+.mission-tab-info#second {
+    margin-top: 10px;
+}
+
+    .mission-tab-deadline{
+        font-size: 14px;
+        font-weight: normal;
+        margin: 0px;
+
+        color: #808080;
     }
 
-    .mission-tab-status#normal{
-        background-color: var(--yellow-accent);
-    }
-
-    .mission-tab-status#good{
-        background-color: var(--blue-accent);
-
-        background-image: url("../Content/Images/fire-icon.png");
-        background-size: cover;
+    .mission-tab-attachments {
+        background-image: url("../../Content/Images/attach-file.png");
+        background-size: 75%;
         background-repeat: no-repeat;
         background-position-x: center;
         background-position-y: center;
+        height: 24px;
+        width: 24px !important;
+        margin-left: auto;
     }
+    
+        .mission-tab-attachments-count {
+            font-size: 14px;
+            margin: 0px;
+            padding: 0px;
+            text-shadow: 
+                -1px -1px 0px white,
+                1px -1px 0px white,
+                -1px 1px 0px white,
+                1px 1px 0px white;
+            color: #808080;
+        }
+

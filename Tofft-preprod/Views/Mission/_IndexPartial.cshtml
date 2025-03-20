@@ -8,7 +8,8 @@
 <div class="mission-tab d-flex flex-column"
      onclick="window.location.href='@Url.Action("Index", "Mission", new { boardId = Model.BoardId, id = Model.Id })'"
      style="cursor: pointer;">
-    <div class="mission-tab-info-top d-flex flex-row">
+
+    <div id="first" class="mission-tab-info d-flex flex-row">
         @if (Model.Deadline.Subtract(DateTime.Today).Days <= 1)
         {
             <div id="danger" class="mission-tab-status rounded-circle"></div>
@@ -21,13 +22,19 @@
         {
             <div id="good" class="mission-tab-status rounded-circle"></div>
         }
-        <div class="mission-group-view d-flex flex-row align-items-center justify-content-center">
+        <div class="mission-tab-group d-flex flex-row align-items-center justify-content-center">
             <h5>@Model.Group</h5>
         </div>
-        <div class="mission-executor-view rounded-circle"></div>
+        <div class="mission-tab-executor rounded-circle"></div>
     </div>
-    <div class="mission-tab-info-bot d-flex flex-column">
-        <h4 class="mission-title">@Model.Description</h4>
-        <div class="mission-tab-attachments"></div>
+
+    <h4 class="mission-tab-title d-flex align-items-center">@Model.Title</h4>
+
+    <div id="second" class="mission-tab-info d-flex flex-row align-items-center">
+        <h4 class="mission-tab-deadline">@Model.Deadline.ToString("dd.MM.yyyy")</h4>
+        <div class="mission-tab-attachments d-flex">
+            <p class="mission-tab-attachments-count">0</p>
+        </div>
     </div>
+
 </div>

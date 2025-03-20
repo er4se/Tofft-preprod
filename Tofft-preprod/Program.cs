@@ -64,6 +64,16 @@ namespace Tofft_preprod
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}"); //pattern: "{controller=Home}/{action=Index}/{id?}");
 
+            app.MapControllerRoute(
+                name: "invite",
+                pattern: "invite/{action}/{boardId?}",
+                defaults: new { controller = "Invite" });
+
+            //app.MapControllerRoute(
+            //    name: "invite",
+            //    pattern: "invite/{token}",
+            //    defaults: new { controller = "Invite", action = "AcceptInvite"});
+
             app.Run();
         }
 

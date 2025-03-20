@@ -10,22 +10,22 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Tofft_preprod.Controllers
 {
-    public class BoardIdRequiredFilter : IActionFilter
-    {
-        public void OnActionExecuting(ActionExecutingContext context)
-        {
-            var boardId = context.RouteData.Values["boardId"] as string;
-            if (string.IsNullOrEmpty(boardId))
-            {
-                // Ћогика, если boardId не найден (например, редирект)
-                context.Result = new RedirectResult("Index");
-            }
-        }
-
-        public void OnActionExecuted(ActionExecutedContext context)
-        {
-        }
-    }
+    //public class BoardIdRequiredFilter : IActionFilter
+    //{
+    //    public void OnActionExecuting(ActionExecutingContext context)
+    //    {
+    //        var boardId = context.RouteData.Values["boardId"] as string;
+    //        if (string.IsNullOrEmpty(boardId))
+    //        {
+    //            // Ћогика, если boardId не найден (например, редирект)
+    //            context.Result = new RedirectResult("Index");
+    //        }
+    //    }
+    //
+    //    public void OnActionExecuted(ActionExecutedContext context)
+    //    {
+    //    }
+    //}
 
     [Authorize(Policy = "RequireUser")]
     [Route("Board/{boardId}/Mission/[action]/{id?}")]
@@ -84,6 +84,8 @@ namespace Tofft_preprod.Controllers
             return RedirectToAction("Index", new { boardId, id });
         }
 
+        #region Edit
+
         [Authorize(Policy = "BoardLead")]
         [HttpGet]
         public async Task<IActionResult> Edit(string boardId, string id)
@@ -121,6 +123,10 @@ namespace Tofft_preprod.Controllers
             return RedirectToAction("Error");
         }
 
+        #endregion
+
+        #region Create
+
         [Authorize(Policy = "BoardLead")]
         [HttpGet]
         public IActionResult Create()
@@ -142,11 +148,21 @@ namespace Tofft_preprod.Controllers
 
                 await _missionRepository.CreateAsync(mission);
 
-                //return RedirectToAction("Index", new { boardId }); //mission id не прилетает
                 return RedirectToAction("Index", new { boardId, mission.Id });
             }
 
             return RedirectToAction("Error");
+        }
+
+        #endregion
+
+        [Authorize(Policy = "BoardLead")]
+        [HttpPost]
+        public async Task<IActionResult> Delete(string boardId, string id)
+        {
+            var entity = await _missionRepository.GetByIdAsync(id);
+            await _missionRepository.DeleteAsync(entity);
+            return RedirectToAction("Details", "Board", new { boardId });
         }
     }
 }

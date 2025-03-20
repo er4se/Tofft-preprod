@@ -19,6 +19,8 @@ namespace Tofft_preprod.DbContext
         public DbSet<Tofft_preprod.Models.Report> Reports { get; set; }
         public DbSet<Tofft_preprod.Models.ImageData> Images { get; set; }
         public DbSet<Tofft_preprod.Models.FileData> Files { get; set; }
+        public DbSet<Tofft_preprod.Models.InviteLink> InviteLinks { get; set; }
+        public DbSet<Tofft_preprod.Models.JoinRequest> JoinRequests { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -45,6 +47,13 @@ namespace Tofft_preprod.DbContext
                 .HasOne(m => m.Board)
                 .WithMany(b => b.Missions)
                 .HasForeignKey(m => m.BoardId);
+
+            builder.Entity<InviteLink>()
+                .HasIndex(i => i.Token)
+                .IsUnique();
+
+            builder.Entity<JoinRequest>()
+                .HasKey(r => new {r.UserId, r.BoardId});
         }
     }
 }

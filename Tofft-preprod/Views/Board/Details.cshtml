@@ -27,6 +27,7 @@
                 <div class="board-index-content col-3">
                     <div class="content-top-head d-flex flex-row align-items-center justify-content-center">
                         <h3 class="top-head-title-h3">ЗАДАЧИ</h3>
+                        <a asp-controller="Invite" asp-action="GenerateLink" asp-route-boardId="@Model.Board.Id" method="post">Линкуй</a>
                     </div>
                     <div class="mission-tab-create d-flex align-items-center justify-content-center">
                         <a asp-controller="Mission" asp-action="Create" asp-route-boardId="@Model.Board.Id">ДОБАВИТЬ</a>

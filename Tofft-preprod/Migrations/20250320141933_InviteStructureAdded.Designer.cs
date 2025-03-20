@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tofft_preprod.DbContext;
 
@@ -10,9 +11,11 @@ using Tofft_preprod.DbContext;
 namespace Tofft_preprod.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250320141933_InviteStructureAdded")]
+    partial class InviteStructureAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.2");
@@ -210,59 +213,6 @@ namespace Tofft_preprod.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Images");
-                });
-
-            modelBuilder.Entity("Tofft_preprod.Models.InviteLink", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("BoardId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("ExpirationDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Token")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BoardId");
-
-                    b.HasIndex("Token")
-                        .IsUnique();
-
-                    b.ToTable("InviteLinks");
-                });
-
-            modelBuilder.Entity("Tofft_preprod.Models.JoinRequest", b =>
-                {
-                    b.Property<string>("UserId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("BoardId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Id")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("UserId", "BoardId");
-
-                    b.HasIndex("BoardId");
-
-                    b.ToTable("JoinRequests");
                 });
 
             modelBuilder.Entity("Tofft_preprod.Models.Mission", b =>
@@ -475,36 +425,6 @@ namespace Tofft_preprod.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Tofft_preprod.Models.InviteLink", b =>
-                {
-                    b.HasOne("Tofft_preprod.Models.Board", "Board")
-                        .WithMany()
-                        .HasForeignKey("BoardId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Board");
-                });
-
-            modelBuilder.Entity("Tofft_preprod.Models.JoinRequest", b =>
-                {
-                    b.HasOne("Tofft_preprod.Models.Board", "Board")
-                        .WithMany()
-                        .HasForeignKey("BoardId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Tofft_preprod.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Board");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Tofft_preprod.Models.Mission", b =>
