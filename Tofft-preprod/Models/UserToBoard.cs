@@ -13,7 +13,7 @@ namespace Tofft_preprod.Models
         /// Назависит от других параметров<br/>
         /// Нужна для визуального представления
         /// </summary>
-        public string UserLocalSpeciality { get; set; }
+        public string? UserLocalSpeciality { get; set; }
         /// <summary>
         /// Role - отвечает за роли в проекте<br/>
         /// 0 - Администратор (нет ограничений)<br/>

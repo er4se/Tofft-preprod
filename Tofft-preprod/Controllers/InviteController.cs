@@ -7,7 +7,7 @@ using Tofft_preprod.Models;
 
 namespace Tofft_preprod.Controllers
 {
-    //[Authorize]                                               WARNING
+    [Authorize]                                               //WARNING
     public class InviteController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -20,10 +20,9 @@ namespace Tofft_preprod.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Policy = "BoardAdmin")]                    WARNING
+        //[Authorize(Policy = "BoardAdmin")]                    //WARNING
         public async Task<IActionResult> GenerateLink(string boardId)
         {
-            boardId = "d5c3f87b-ffd3-42a8-ad41-092286e7d919"; //WARNING 
             var token = Guid.NewGuid().ToString("N");
             var invite = new InviteLink
             {

@@ -3,7 +3,7 @@
 @model BoardDTO
 
 <head>
-    <link rel="stylesheet" href="~/css/board.css" />
+    <link rel="stylesheet" href="~/css/Board/board-create.css" />
 </head>
 
 <body>
@@ -11,7 +11,7 @@
         <form asp-action="Create" method="post">
             <div class="page-content-container container row">
                 <div class="content-top-head d-flex flex-row align-items-center">
-                    <h1 class="top-head-title">PROJECT CREATION</h1>
+                    <h1 class="top-head-title">СОЗДАНИЕ ПРОЕКТА</h1>
                 </div>
                 <div class="content-main-body">
                     <div class="board-creation-cluster">
@@ -41,17 +41,17 @@
                             <div class="mini-icon-box"></div>
                             <h2 class="board-creation-subtitle">Разрешенные функции</h2>
                         </div>
-                        <div class="board-creation-input-block d-flex flex-row">
+                        <div class="board-creation-input-block d-flex flex-row align-items-center">
                             <input type="checkbox" class="board-creation-check" />
-                            <p class="board-creation-input-title">Включить отделы</p>
+                            <p class="board-creation-check-title">Включить отделы</p>
                         </div>
                         <div class="board-creation-input-block d-flex flex-row">
                             <input type="checkbox" class="board-creation-check" />
-                            <p class="board-creation-input-title">Включить статистику</p>
+                            <p class="board-creation-check-title">Включить статистику</p>
                         </div>
                         <div class="board-creation-input-block d-flex flex-row">
                             <input type="checkbox" class="board-creation-check" />
-                            <p class="board-creation-input-title">Включить календарь</p>
+                            <p class="board-creation-check-title">Включить календарь</p>
                         </div>
                     </div>
                     <div class="board-creation-cluster" style="pointer-events: none; opacity: 0.6;">
@@ -61,11 +61,11 @@
                         </div>
                         <div class="board-creation-input-block d-flex flex-row">
                             <input type="radio" class="board-creation-radio" />
-                            <p class="board-creation-input-title">Открытый доступ</p>
+                            <p class="board-creation-radio-title">Открытый доступ</p>
                         </div>
                         <div class="board-creation-input-block d-flex flex-row">
                             <input type="radio" class="board-creation-radio" />
-                            <p class="board-creation-input-title">Доступ по ссылке</p>
+                            <p class="board-creation-radio-title">Доступ по ссылке</p>
                         </div>
                     </div>
                     <div class="board-creation-buttons justify-content-center">

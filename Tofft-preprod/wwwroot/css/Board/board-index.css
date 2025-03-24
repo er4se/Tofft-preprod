@@ -1,0 +1,119 @@
+﻿/*#region OUTER*/
+
+body {
+    font-family: 'Market Fresh';
+    background-color: #F7FFF7;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --light-shade: #F7FFF7;
+    --dark-shade: #292F36;
+    --blue-accent: #4ECDC0;
+    --red-accent: #FF6B6B;
+    --yellow-accent: #FFE66D;
+    --blue-accent-hover: #34B4B2;
+}
+
+/*#endregion*/
+
+/*#region NOTHING*/
+
+.board-nothing-message {
+    padding-top: 40px;
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+.board-nothing-emoji {
+    padding: 0;
+    height: 84px;
+    width: 84px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+/*#endregion*/
+
+/*#region GENERAL*/
+
+.board-button-splash {
+    margin: 20px;
+    padding: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #4ECDC4;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.board-view-entity {
+    margin: 20px !important;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    height: 120px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.board-view-info{
+    margin-left: 20px;
+    text-align:left;
+}
+
+.board-view-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.board-view-description {
+    font-size: 16px;
+}
+
+.board-view-button-holder {
+    height: 100%;
+    margin-left: auto;
+    border: 0px;
+    border-radius: 0px 10px 10px 0;
+    background-color: rgba(78, 205, 196, 0.2);
+}
+
+.board-view-button {
+    background-color: #4ECDC4;
+    background-image: url("../../Content/Images/right-arrow.png");
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    color: #F7FFF7;
+    font-size: 42px;
+    text-decoration: none;
+    width: 80px;
+    height: 80px;
+    border: 0px;
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+.board-view-splash {
+    height: 100%;
+    width: 300px;
+    background-image: url("../../Content/Images/image-placeholder.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    border: 0px solid #ddd;
+    border-radius: 10px 0 0px 10px;
+}
+
+.add-button#board-index-top{
+    height: 24px;
+    width: 24px;
+}
+
+.add-button#board-index-bottom {
+    height: 34px;
+    width: 34px;
+}
+
+/*#endregion*/

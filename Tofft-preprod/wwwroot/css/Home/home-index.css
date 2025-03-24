@@ -1,0 +1,139 @@
+﻿/*#region OUTER*/
+
+body {
+    font-family: 'Market Fresh';
+    background-color: #F7FFF7;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --light-shade: #F7FFF7;
+    --dark-shade: #292F36;
+    --blue-accent: #4ECDC0;
+    --red-accent: #FF6B6B;
+    --yellow-accent: #FFE66D;
+    --blue-accent-hover: #34B4B2;
+}
+
+/*#endregion*/
+
+/*#region SIDE-NAV*/
+
+.side-menu-block {
+    background-color: #292F36;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+    .side-menu-block:not(:last-child) {
+        margin-bottom: 20px
+    }
+
+.side-menu-navigation {
+    color: white;
+}
+
+    .side-menu-navigation ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .side-menu-navigation li {
+        background-color: #F7FFF7;
+        border: 1px solid #ddd;
+        padding: 20px 0px;
+        display: flex;
+    }
+
+    .side-menu-navigation a {
+        margin-left: 40px;
+        text-decoration: none;
+        color: #292929;
+        font-size: 16px;
+        display: block;
+    }
+
+.side-menu-navigation-holder {
+    background-color: #F7FFF7;
+    margin: 20px 0;
+}
+
+.side-menu {
+    padding: 20px 0;
+    padding-right: 20px;
+}
+
+/*#endregion*/
+
+/*#region SIDE-FEED*/
+
+.side-menu-feedback-message {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.side-menu-feedback-holder {
+    background-color: #F7FFF7;
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.side-menu-feedback-button {
+    width: 100%;
+}
+
+.side-menu-feedback-rating {
+    margin-bottom: 10px;
+}
+
+    .side-menu-feedback-rating span {
+        font-size: 20px;
+        color: #f2c94c;
+    }
+
+/*#endregion*/
+
+/*#region MAIN-CONTENT*/
+
+.menu-content {
+    display: flex;
+    align-items: flex-end;
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    padding: 0px;
+}
+
+.menu-splash {
+    background-image: url("../../Content/Images/home-content.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    border: 0px;
+    border-radius: 10px 10px 0px 0px;
+    height: 80%;
+    width: 100%;
+}
+
+.menu-button-holder {
+    margin: auto 20px 20px auto;
+}
+
+.menu-button{
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+.menu-button:last-child{
+    margin-right: 0px;
+}
+
+/*#endregion*/

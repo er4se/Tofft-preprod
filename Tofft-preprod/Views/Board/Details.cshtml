@@ -3,7 +3,7 @@
 @model BoardViewModel;
 
 <head>
-    <link rel="stylesheet" href="~/css/board-index.css" />
+    <link rel="stylesheet" href="~/css/Board/board-details.css" />
 </head>
 
 <body>
@@ -12,22 +12,29 @@
             <div class="content-top-head d-flex flex-row align-items-center row">
                 <h1 class="top-head-title">@Model.Board.Title</h1>
             </div>
-            <div class="board-index-content-holder d-flex flex-row row gy-2">
-                <div class="board-index-content col-auto d-flex flex-column">
-                    <div class="content-top-head top-head-nav d-flex flex-row align-items-center justify-content-center">
+            <div id="board-details-unique" class="content-main-body d-flex flex-row">
+                <div class="board-details-content col-auto d-flex flex-column">
+                    <div id="board-details-unique" class="content-top-head d-flex flex-row align-items-center justify-content-center">
                         <h3 class="top-head-title-h3">МЕНЮ</h3>
                     </div>
-                    <button class="board-index-nav-btn">Доска проекта</button>
-                    <button class="board-index-nav-btn">Моя доска</button>
-                    <button class="board-index-nav-btn">Проблемы</button>
-                    <button class="board-index-nav-btn">Репорты</button>
-                    <button class="board-index-nav-btn">Статистика</button>
-                    <button class="board-index-nav-btn">Календарь</button>
+                    <button class="board-details-navigation-button">Доска проекта</button>
+                    <button class="board-details-navigation-button">Моя доска</button>
+                    <button class="board-details-navigation-button">Проблемы</button>
+                    <button class="board-details-navigation-button">Репорты</button>
+                    <button class="board-details-navigation-button">Статистика</button>
+                    <button class="board-details-navigation-button">Календарь</button>
+                    @using (Html.BeginForm("GenerateLink", "Invite", new { boardId = Model.Board.Id }, FormMethod.Post))
+                    {
+                        <button type="submit" class="board-details-navigation-button">ИНВАЙТ</button>
+                    }
+                    @using (Html.BeginForm("Requests", "Admin", new { id = Model.Board.Id }, FormMethod.Post))
+                    {
+                        <button type="submit" class="board-details-navigation-button">АДМИН</button>
+                    }
                 </div>
-                <div class="board-index-content col-3">
+                <div class="board-details-content col-3">
                     <div class="content-top-head d-flex flex-row align-items-center justify-content-center">
                         <h3 class="top-head-title-h3">ЗАДАЧИ</h3>
-                        <a asp-controller="Invite" asp-action="GenerateLink" asp-route-boardId="@Model.Board.Id" method="post">Линкуй</a>
                     </div>
                     <div class="mission-tab-create d-flex align-items-center justify-content-center">
                         <a asp-controller="Mission" asp-action="Create" asp-route-boardId="@Model.Board.Id">ДОБАВИТЬ</a>
@@ -36,7 +43,7 @@
                     @await Component.InvokeAsync("MissionList", new { boardId = Model.Board.Id, status = MissionStatus.Available })
 
                 </div>
-                <div class="board-index-content col-3">
+                <div class="board-details-content col-3">
                     <div class="content-top-head d-flex flex-row align-items-center justify-content-center">
                         <h3 class="top-head-title-h3">В ПРОЦЕССЕ</h3>
                     </div>
@@ -44,7 +51,7 @@
                     @await Component.InvokeAsync("MissionList", new { boardId = Model.Board.Id, status = MissionStatus.Processing })
 
                 </div>
-                <div class="board-index-content col-3">
+                <div class="board-details-content col-3">
                     <div class="content-top-head d-flex flex-row align-items-center justify-content-center">
                         <h3 class="top-head-title-h3">ГОТОВО</h3>
                     </div>

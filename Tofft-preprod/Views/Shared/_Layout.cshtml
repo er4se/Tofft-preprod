@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Tofft_preprod</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Tofft_preprod.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -13,42 +14,35 @@
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <div class="container-fluid d-flex align-items-center">
-                <!--Horizontal-menu-->
-                <ul class="navbar-nav d-flex flex-row mx-auto align-items-center">
-                    <li class="nav-item">
-                        <div class="navbar-title">
-                            <img src="~/Tofft-png-holder/IconFullColorReversed.png" alt="Logo" class="navbar-logo" />
-                            <a class="navbar-brand" href="#">Tofft</a>
+        <div class="navigation-holder container d-flex flex-row align-items-center">
+            <nav class="navigation">
+                <ul class="navigation-row d-flex flex-row align-items-center justify-content-center">
+                    <li class="navigation-item d-flex align-items-center">
+                        <div class="navigation-title d-flex flex-row align-items-center">
+                            <div class="navigation-logo"></div>
+                            <a class="navigation-brand" href="#">Tofft</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                    <li class="navigation-item d-flex align-items-center">
+                        <a class="navigation-link" asp-controller="Home" asp-action="Index">ГЛАВНАЯ</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Board" asp-action="Index">Projects</a>
+                    <li class="navigation-item d-flex align-items-center">
+                        <a class="navigation-link" asp-controller="Board" asp-action="Index">ПРОЕКТЫ</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Board" asp-action="Taskboard">Tasks</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/faq">FAQ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Mission" asp-action="Edit">VIEW TESTING</a>
+                    <li class="navigation-item d-flex align-items-center">
+                        <a class="navigation-link" href="/faq">FAQ</a>
                     </li>
                 </ul>
-                <div class="d-flex flex-row navbar-profile">
-                    <img src="~/Tofft-png-holder/Notifications.png" class="navbar-notify" />
-                    <button onclick="window.location.href='@Url.Action("ControlPanel", "Account")'" class="navbar-avatar rounded-circle" />
-                </div>
+            </nav>
+            <div class="d-flex flex-row navigation-profile">
+                <div class="navigation-notifications"></div>
+                <button onclick="window.location.href='@Url.Action("ControlPanel", "Account")'" class="navigation-avatar rounded-circle" />
             </div>
-        </nav>
+        </div>
     </header>
 
     <div class="container main-content">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3" style="padding-bottom: 20px !important;">
             @RenderBody()
         </main>
     </div>
@@ -56,13 +50,13 @@
     <footer class="border-top footer text-muted">
         <div class="container row footer-content">
             <div class="col-4">
-                <h4>Контакты</h4>
+                <h4 class="footer-title">Контакты</h4>
                 <h2>Мащенко А. Е. / AKOVA Prod.</h2>
                 <a>+7 (963) 682 - 93 - 04<br /></a>
                 <a>mash.xander@outlook.com</a>
             </div>
             <div class="col-6">
-                <h4>Оферта</h4>
+                <h4 class="footer-title">Оферта</h4>
                 <p>
                     Данное программное обеспечение спроектировано и разработано в качестве продукта
                     для выпускной квалификационной работы (далее ВКР) студента бакалавриата
@@ -73,21 +67,21 @@
                 </p>
             </div>
             <div class="col-2">
-                <h4>Локализация</h4>
+                <h4 class="footer-title">Локализация</h4>
                 <div>
                     <input type="radio" id="ru" value="Russian" checked="checked" />
                     <label for="ru">Русский</label>
-                    <img src="~/Tofft-png-holder/russia.png" class="localisation-flags" />
+                    <img src="~/Content/Images/russia.png" class="localisation-flags" />
                 </div>
                 <div>
                     <input type="radio" id="en" value="English" />
                     <label for="en">English</label>
-                    <img src="~/Tofft-png-holder/united-kingdom.png" class="localisation-flags" />
+                    <img src="~/Content/Images/united-kingdom.png" class="localisation-flags" />
                 </div>
                 <div>
                     <input type="radio" id="du" value="Deutsch" />
                     <label for="du">Deutsch</label>
-                    <img src="~/Tofft-png-holder/germany.png" class="localisation-flags" />
+                    <img src="~/Content/Images/germany.png" class="localisation-flags" />
                 </div>
             </div>
         </div>

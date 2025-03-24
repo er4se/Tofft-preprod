@@ -1,0 +1,77 @@
+﻿/*#region OUTER*/
+
+body {
+    font-family: 'Market Fresh';
+    background-color: #F7FFF7;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --light-shade: #F7FFF7;
+    --dark-shade: #292F36;
+    --blue-accent: #4ECDC0;
+    --red-accent: #FF6B6B;
+    --yellow-accent: #FFE66D;
+    --blue-accent-hover: #34B4B2;
+}
+
+/*#endregion*/
+
+.board-creation-subtitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    padding-left: 20px;
+}
+
+.board-creation-input-block{
+    margin-top: 20px;
+}
+
+.board-creation-input-title {
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+.board-creation-check-title {
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 0px;
+}
+
+.board-creation-radio-title {
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 0px;
+}
+
+.board-creation-cluster {
+    margin: 0;
+    padding: 20px;
+}
+
+.board-creation-input {
+    border: 2px solid #ddd;
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    height: 36px;
+    width: 100%;
+    padding-left: 20px;
+    padding-top: 5px;
+    color: #767676;
+}
+
+.board-creation-check{
+    margin-right: 10px;
+}
+
+.board-creation-radio{
+    margin-right: 10px;
+}
+
+.btn {
+    margin: 0 20px 20px 20px !important;
+}

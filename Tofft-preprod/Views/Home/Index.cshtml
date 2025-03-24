@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tofft</title>
-    <link rel="stylesheet" href="~/css/home.css" />
+    <link rel="stylesheet" href="~/css/Home/home-index.css" />
 </head>
 <body>
     <content>
@@ -12,33 +12,33 @@
             <div class="row">
                 <div class="side-menu col-3">
                     <div class="side-menu-block">
-                        <div class="navigation-block">
-                            <nav class="navbar-home">
+                        <div class="side-menu-navigation-holder">
+                            <nav class="side-menu-navigation">
                                 <ul>
-                                    <li><a href="#">● HOME</a></li>
-                                    <li><a href="#">● ABOUT US</a></li>
-                                    <li><a href="#">● OUR TARGETS</a></li>
-                                    <li><a href="#">● OUR TEAM</a></li>
-                                    <li><a href="#">● OUR STACK</a></li>
-                                    <li><a href="#">● CONTACTS</a></li>
+                                    <li><a href="#">● ГЛАВНАЯ</a></li>
+                                    <li><a href="#">● О НАС</a></li>
+                                    <li><a href="#">● НАШИ ЦЕЛИ</a></li>
+                                    <li><a href="#">● НАША КОМАНДА</a></li>
+                                    <li><a href="#">● НАШИ ТЕХНОЛОГИИ</a></li>
+                                    <li><a href="#">● КОНТАКТЫ</a></li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
 
                     <div class="side-menu-block">
-                        <div class="feedback-block">
-                            <h3>Leave your feedback!</h3>
+                        <div class="side-menu-feedback-holder">
+                            <h3>Оставьте ваш отзыв!</h3>
                             <form>
-                                <textarea placeholder="Write your message..."></textarea>
-                                <div class="rating">
+                                <textarea class="side-menu-feedback-message" placeholder="Ваше сообщение..."></textarea>
+                                <div class="side-menu-feedback-rating">
                                     <span>★</span>
                                     <span>★</span>
                                     <span>★</span>
                                     <span>★</span>
                                     <span>★</span>
                                 </div>
-                                <button type="submit" class="btn fb-button">Send</button>
+                                <button type="submit" class="btn side-menu-feedback-button">ОТПРАВИТЬ</button>
                             </form>
                         </div>
                     </div>
@@ -46,11 +46,12 @@
 
 
 
-                <div class="menu-content container col-9">
-                    <div class="buttons">
-                        <button class="btn" id="moreInfoBtn">More</button>
-                        <button class="btn" id="joinBtn">Join</button>
-                        <button class="btn" id="createBtn">Create</button>
+                <div class="menu-content container col-9 d-flex flex-column">
+                    <div class="menu-splash"></div>
+                    <div class="menu-button-holder">
+                        <button class="menu-button btn" id="moreInfoBtn">БОЛЬШЕ</button>
+                        <button class="menu-button btn" id="joinBtn">ПРИСОЕДИНИТЬСЯ</button>
+                        <button class="menu-button btn" id="createBtn">СОЗДАТЬ</button>
                     </div>
                 </div>
             </div>

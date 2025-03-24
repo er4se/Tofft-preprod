@@ -1,4 +1,6 @@
-﻿:root {
+﻿/*#region OUTER*/
+
+:root {
     --light-shade: #F7FFF7;
     --dark-shade: #292F36;
     --blue-accent: #4ECDC0;
@@ -14,23 +16,28 @@ body {
     padding: 0;
 }
 
+/*#endregion*/
+
+/*#region INDEX*/
+
 .mission-content{
     margin: 20px;
 }
 
 .mission-title{
     font-weight: bold;
-    font-size: 32px;
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
 .mission-status-title{
     font-weight: bold;
-    font-size: 20px
+    font-size: 16px
 }
 
 .mission-status{
     font-weight: bold;
-    font-size: 20px;
+    font-size: 16px;
 
     margin-left: 10px;
 }
@@ -47,12 +54,12 @@ body {
 
 .mission-deadline-title {
     font-weight: bold;
-    font-size: 20px
+    font-size: 16px
 }
 
 .mission-deadline {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 16px;
     margin-left: 10px;
 }
 
@@ -72,13 +79,13 @@ body {
     margin: 20px 0;
     padding: 20px;
     border: 1px solid #ddd;
-    border-radius: 15px;
+    border-radius: 10px;
 
     min-height: 200px;
 }
 
 .mission-description{
-    font-size: 18px;
+    font-size: 16px;
     font-weight: normal;
 }
 
@@ -86,15 +93,18 @@ body {
     margin-left: auto !important;
 }
 
-/*_IndexPartial.cshtml*/
+/*#endregion*/
+
+/*#region INDEX-PARTIAL*/
 
 .mission-tab-holder {
+    margin-top: 10px;
     overflow-y: auto;
     overflow-x: hidden;
 
     scroll-behavior: smooth;
 
-    height: 90%;
+    height: 615px;
 }
 
     .mission-tab {
@@ -104,6 +114,10 @@ body {
         box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
         margin: 10px;
         padding: 10px;
+    }
+
+    .mission-tab:first-of-type{
+        margin-top: 0px !important;
     }
 
 .mission-tab-info#first{
@@ -208,3 +222,4 @@ body {
             color: #808080;
         }
 
+/*#endregion*/

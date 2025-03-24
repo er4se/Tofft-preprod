@@ -1,0 +1,103 @@
+﻿/*#region OUTER*/
+
+body {
+    font-family: 'Market Fresh';
+    background-color: #F7FFF7;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --light-shade: #F7FFF7;
+    --dark-shade: #292F36;
+    --blue-accent: #4ECDC0;
+    --red-accent: #FF6B6B;
+    --yellow-accent: #FFE66D;
+    --blue-accent-hover: #34B4B2;
+}
+
+/*#endregion*/
+
+/*#region BOARD-DETAILS*/
+
+.board-details-content {
+    padding: 0;
+    margin: 0;
+    margin: 20px 10px 0px 10px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    background-color: var(--light-shade);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    height: 740px;
+}
+
+    .board-details-content:last-child {
+        margin-right: 0px;
+    }
+
+    .board-details-content:first-child {
+        margin-left: 0px;
+        flex-grow: 1;
+        border-radius: 15px 0px 0px 15px;
+    }
+
+        .content-top-head#board-details-unique {
+            border-radius: 10px 0px 0px 0px;
+        }
+        
+        .top-head-title-h3 {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .board-details-navigation-button {
+            background-color: var(--light-shade);
+            border: 1px solid #ddd;
+            padding: 16px 0;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .board-details-navigation-button:last-child {
+            margin-bottom: 20px;
+        }
+
+/*#endregion*/
+
+/*#region MISSION-TAB*/
+
+.mission-tab-create {
+    background-color: var(--blue-accent);
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    min-height: 40px;
+    margin: 10px;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
+    .mission-tab-create a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        text-decoration: none;
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        height: 40px;
+        border: 0px;
+        border-radius: 15px;
+        color: var(--light-shade);
+    }
+
+        .mission-tab-create a:focus {
+            box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+        }
+
+        .mission-tab-create a:hover {
+            background-color: var(--blue-accent-hover);
+        }
+
+/*#endregion*/

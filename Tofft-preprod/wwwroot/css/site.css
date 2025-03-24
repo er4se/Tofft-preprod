@@ -1,4 +1,4 @@
-/*#region Outer*/
+/*#region OUTER*/
 
 @font-face {
     font-family: 'Market Fresh';
@@ -31,9 +31,9 @@
     --blue-accent-hover: #34B4B2;
 }
 
-/*#endregion Outer*/
+/*#endregion*/
 
-/*#region General*/
+/*#region GENERAL*/
 
 html {
   font-size: 14px;
@@ -60,14 +60,9 @@ body {
     border: none;
     padding: 20px 60px;
     font-size: 16px;
-    /*margin-right: 20px;*/
     cursor: pointer;
     border-radius: 5px;
 }
-
-    /*.btn:last-child {
-        margin-right: 10px;
-    }*/
 
     .btn:hover {
         background-color: var(--blue-accent-hover);
@@ -82,17 +77,17 @@ body {
     }
 
 .main-content{
-    padding-top: 96px;
+    padding-top: 64px;
 }
 
 .content-top-head {
     margin: 0px;
     padding: 0px;
     border: 1px solid #ddd;
-    border-radius: 15px 15px 0 0;
+    border-radius: 10px 10px 0 0;
     background-color: var(--dark-shade);
     color: #F7FFF7;
-    height: 74px;
+    height: 52px;
 }
 
     .content-top-head button{
@@ -102,7 +97,7 @@ body {
 .content-main-body {
     padding: 0px;
     border: 1px solid #ddd;
-    border-radius: 0 0 15px 15px;
+    border-radius: 0 0 10px 10px;
     background-color: #f7fff7;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
@@ -111,25 +106,37 @@ body {
         margin: 0px;
     }
 
+    .content-main-body#board-details-unique{
+        border: 0px;
+        background-color: none;
+        box-shadow: none;
+    }
+
 .page-content-container{
-    margin: 20px 0;
+    margin: 0px;
+    margin-top: 20px;
+    padding: 0px;
 }
 
 .add-button {
     border: 0px;
     background-color: #4ECDC4;
-    color: #F7FFF7;
-    height: 36px;
-    width: 36px;
+    background-image: url("../../Content/Images/add.png");
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
 }
 
 .top-head-title{
     color: var(--light-shade);
 
     margin-left: 20px;
-    height: 34px;
-    font-size: 36px;
+    font-size: 24px;
     font-weight: bold;
+    padding-top: 3px;
+
+    margin-bottom: 0px;
 }
 
 .mini-icon-box {
@@ -143,114 +150,105 @@ body {
 
 /*#endregion*/
 
-/*#region Header*/
+/*#region HEADER*/
 
 header{
     width: 100%;
     background: #292f36;
-    height: 96px;
+    height: 64px;
     position: fixed;
 }
 
-header .container{
-    height: 96px;
-}
+    header .nav li.active, .nav li.active:hover, li:hover, a:hover {
+        color: #4ECDC4 !important;
+    }
 
-header .nav-item:not(:last-child){
-    margin-right: 64px;
-}
-
-header .nav-item{
-    font-family: 'Market Fresh';
-    font-weight: bold;
-    font-size: 36px;
-}
-
-header .nav-link{
-    color: #F7FFF7;
-}
-
-header .active{
-    color: #4ECDC4;
-}
-
-header .nav li.active, .nav li.active:hover, li:hover, a:hover{
-    color: #4ECDC4 !important;
-}
-
-header .navbar-logo{
-    margin-bottom: 15px;
-    height: 42px;
-    width: 42px;
-}
-
-header .navbar-brand {
-    font-family: 'Market Fresh';
-    font-weight: bold;
-    font-size: 48px;
-    color: #F7FFF7;
-}
-
-header .navbar{
-    display: flex;
-    align-items: center;
-    height: 96px;
-}
-
-header .container-fluid {
-    display: flex;
-    align-items: center;
+.navigation-holder{
     width: 100%;
+    height: 64px;
 }
 
-header .navbar-nav {
-    display: flex;
-    align-items: center;
+.navigation-row{
+    margin: 0px;
+    padding: 0px;
 }
+    
+    .navigation-item{
+        margin-right: 64px;
+        font-family: 'Market Fresh';
+        font-weight: bold;
+        font-size: 24px;
 
-header .navbar-title{
-    align-items: center;
-}
+        marker: none;
+    }
 
-header .navbar-profile{
-    margin-right: 20px;
-    align-items: center;
-}
+    .navigation-item:first-child{
 
-header .navbar-notify{
-    margin-right: 15px;
-    height: 38px;
-    width: 38px;
-}
+    }
 
-header .navbar-avatar{
-    background-color: var(--light-shade);
-    background-image: url("../Content/Images/avatar-placeholder.png");
-    background-size: 60%;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: center;
+        .navigation-brand{
+            font-size: 32px;
+            text-decoration: none;
+            color: var(--light-shade);
+        }
 
-    border: 0px;
+        .navigation-logo{
+            height: 28px;
+            width: 28px;
+            background-image: url("../Content/Images/tofft-colored-icon.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-position-y: center;
+            margin-right: 10px;
 
-    height: 54px;
-    width: 54px;
-}
+            padding: 0px;
+        }
+    
+        .navigation-link{
+            text-decoration: none;
+            color: var(--light-shade);
+        }
 
+        .navigation-profile{
+            margin-left: auto;
+        }
+
+            .navigation-notifications{
+
+            }
+
+            .navigation-avatar {
+                height: 32px;
+                width: 32px;
+                background-color: var(--light-shade);
+                background-image: url("../Content/Images/avatar-placeholder.png");
+                background-size: 60%;
+                background-repeat: no-repeat;
+                background-position-x: center;
+                background-position-y: center;
+                border: 0px;
+            }
 /*#endregion*/
 
-/*#region Footer*/
+/*#region FOOTER*/
 
 footer {
     background-color: #292f36;
     width: 100%;
     height: 100vh;
     padding: 20px 0;
+    color: var(--light-shade);
 }
 
-footer .footer-content{
-    margin: auto;
-}
+    footer .footer-content {
+        margin: auto;
+        color: #868F9B;
+    }
+
+    footer .footer-title {
+        color: #868F9B;
+    }
 
 footer .localisation-flags{
     height: 32px;
