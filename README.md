@@ -7,3 +7,5 @@ Track, Organize, Focus, Finish, Thrive - TOFFT
 ---
 В данный момент приложение находится в стадии разработки!
 Финальная версия продукта может отличаться
+
+![Tofft-Placeholder](https://github.com/user-attachments/assets/d93a0281-145f-46c2-a080-37aa16dda3c8)
